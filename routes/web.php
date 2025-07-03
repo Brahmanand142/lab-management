@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('frontend.index');
 });
+
+
+
+//Backend Routes
+Route::view('dahsboard','backend.dashboard');
