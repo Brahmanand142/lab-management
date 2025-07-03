@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <!doctype html>
+=======
+ <!doctype html>
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
 <html lang="en">
 <head>
    
@@ -12,6 +16,7 @@
     <title>Edubin - LMS Education HTML Template</title>
     
     <!--====== Favicon Icon ======-->
+<<<<<<< HEAD
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
 
     <!--====== Slick css ======-->
@@ -43,6 +48,39 @@
     
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="css/responsive.css">
+=======
+    <link rel="shortcut icon" href="{{ asset('frontend') }}/images/favicon.png" type="image/png">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/slick.css">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/animate.css">
+    
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/nice-select.css">
+    
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/jquery.nice-number.min.css">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/magnific-popup.css">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/bootstrap.min.css">
+    
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/font-awesome.min.css">
+    
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/default.css">
+    
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/style.css">
+    
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/responsive.css">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
   
   
 </head>
@@ -76,8 +114,13 @@
                     <div class="col-lg-6">
                         <div class="header-contact text-lg-left text-center">
                             <ul>
+<<<<<<< HEAD
                                 <li><img src="images/all-icon/map.png" alt="icon"><span>127/5 Mark street, New york</span></li>
                                 <li><img src="images/all-icon/email.png" alt="icon"><span>info@yourmail.com</span></li>
+=======
+                                <li><img src="{{ asset('frontend') }}/images/all-icon/map.png" alt="icon"><span>127/5 Mark street, New york</span></li>
+                                <li><img src="{{ asset('frontend') }}/images/all-icon/email.png" alt="icon"><span>info@yourmail.com</span></li>
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             </ul>
                         </div>
                     </div>
@@ -96,7 +139,11 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="logo">
                             <a href="index-2.html">
+<<<<<<< HEAD
                                 <img src="images/logo.png" alt="Logo">
+=======
+                                <img src="{{ asset('frontend') }}/images/logo.png" alt="Logo">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             </a>
                         </div>
                     </div>
@@ -104,7 +151,11 @@
                         <div class="support-button float-right d-none d-md-block">
                             <div class="support float-left">
                                 <div class="icon">
+<<<<<<< HEAD
                                     <img src="images/all-icon/support.png" alt="icon">
+=======
+                                    <img src="{{ asset('frontend') }}/images/all-icon/support.png" alt="icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                                 <div class="cont">
                                     <p>Need Help? call us free</p>
@@ -226,7 +277,11 @@
     <!--====== SLIDER PART START ======-->
     
     <section id="slider-part" class="slider-active">
+<<<<<<< HEAD
         <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-1.jpg)" data-overlay="4">
+=======
+        <div class="single-slider bg_cover pt-150" style="background-image: url({{ asset('images/slider/s-1.jpg') }})" data-overlay="4" style="background-image: url(images/slider/s-1.jpg)" data-overlay="4">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
@@ -243,7 +298,11 @@
             </div> <!-- container -->
         </div> <!-- single slider -->
         
+<<<<<<< HEAD
         <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-2.jpg)" data-overlay="4">
+=======
+        <div class="single-slider bg_cover pt-150" style="background-image: url({{ asset('images/slider/s-2.jpg') }})" data-overlay="4" style="background-image: url(images/slider/s-2.jpg)" data-overlay="4">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
@@ -260,7 +319,11 @@
             </div> <!-- container -->
         </div> <!-- single slider -->
         
+<<<<<<< HEAD
         <div class="single-slider bg_cover pt-150" style="background-image: url(images/slider/s-3.jpg)" data-overlay="4">
+=======
+        <div class="single-slider bg_cover pt-150" style="background-image: url({{ asset('images/slider/s-3.jpg') }})" data-overlay="4" style="background-image: url(images/slider/s-3.jpg)" data-overlay="4">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7 col-lg-9">
@@ -297,7 +360,11 @@
                                 <a href="#">
                                     <span class="singel-category text-center color-1">
                                         <span class="icon">
+<<<<<<< HEAD
                                             <img src="images/all-icon/ctg-1.png" alt="Icon">
+=======
+                                            <img src="{{ asset('frontend') }}/images/all-icon/ctg-1.png" alt="Icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                         </span>
                                         <span class="cont">
                                             <span>Language</span>
@@ -309,7 +376,11 @@
                                 <a href="#">
                                     <span class="singel-category text-center color-2">
                                         <span class="icon">
+<<<<<<< HEAD
                                             <img src="images/all-icon/ctg-2.png" alt="Icon">
+=======
+                                            <img src="{{ asset('frontend') }}/images/all-icon/ctg-2.png" alt="Icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                         </span>
                                         <span class="cont">
                                             <span>Business</span>
@@ -321,7 +392,11 @@
                                 <a href="#">
                                     <span class="singel-category text-center color-3">
                                         <span class="icon">
+<<<<<<< HEAD
                                             <img src="images/all-icon/ctg-3.png" alt="Icon">
+=======
+                                            <img src="{{ asset('frontend') }}/images/all-icon/ctg-3.png" alt="Icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                         </span>
                                         <span class="cont">
                                             <span>Literature</span>
@@ -333,7 +408,11 @@
                                 <a href="#">
                                     <span class="singel-category text-center color-1">
                                         <span class="icon">
+<<<<<<< HEAD
                                             <img src="images/all-icon/ctg-1.png" alt="Icon">
+=======
+                                            <img src="{{ asset('frontend') }}/images/all-icon/ctg-1.png" alt="Icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                         </span>
                                         <span class="cont">
                                             <span>Language</span>
@@ -345,7 +424,11 @@
                                 <a href="#">
                                     <span class="singel-category text-center color-2">
                                         <span class="icon">
+<<<<<<< HEAD
                                             <img src="images/all-icon/ctg-2.png" alt="Icon">
+=======
+                                            <img src="{{ asset('frontend') }}/images/all-icon/ctg-2.png" alt="Icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                         </span>
                                         <span class="cont">
                                             <span>Business</span>
@@ -357,7 +440,11 @@
                                 <a href="#">
                                     <span class="singel-category text-center color-3">
                                         <span class="icon">
+<<<<<<< HEAD
                                             <img src="images/all-icon/ctg-3.png" alt="Icon">
+=======
+                                            <img src="{{ asset('frontend') }}/images/all-icon/ctg-3.png" alt="Icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                         </span>
                                         <span class="cont">
                                             <span>Literature</span>
@@ -425,7 +512,11 @@
             </div> <!-- row -->
         </div> <!-- container -->
         <div class="about-bg">
+<<<<<<< HEAD
             <img src="images/about/bg-1.png" alt="About">
+=======
+            <img src="{{ asset('frontend') }}/images/about/bg-1.png" alt="About">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
         </div>
     </section>
     
@@ -475,7 +566,11 @@
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
+<<<<<<< HEAD
                                 <img src="images/course/cu-1.jpg" alt="Course">
+=======
+                                <img src="{{ asset('frontend') }}/images/course/cu-1.jpg" alt="Course">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             </div>
                             <div class="price">
                                 <span>Free</span>
@@ -493,7 +588,11 @@
                             <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
+<<<<<<< HEAD
                                     <a href="#"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
+=======
+                                    <a href="#"><img src="{{ asset('frontend') }}/images/course/teacher/t-1.jpg" alt="teacher"></a>
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                                 <div class="name">
                                     <a href="#"><h6>Mark anthem</h6></a>
@@ -512,7 +611,11 @@
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
+<<<<<<< HEAD
                                 <img src="images/course/cu-2.jpg" alt="Course">
+=======
+                                <img src="{{ asset('frontend') }}/images/course/cu-2.jpg" alt="Course">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             </div>
                             <div class="price">
                                 <span>Free</span>
@@ -530,7 +633,11 @@
                             <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
+<<<<<<< HEAD
                                     <a href="#"><img src="images/course/teacher/t-2.jpg" alt="teacher"></a>
+=======
+                                    <a href="#"><img src="{{ asset('frontend') }}/images/course/teacher/t-2.jpg" alt="teacher"></a>
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                                 <div class="name">
                                     <a href="#"><h6>Mark anthem</h6></a>
@@ -549,7 +656,11 @@
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
+<<<<<<< HEAD
                                 <img src="images/course/cu-3.jpg" alt="Course">
+=======
+                                <img src="{{ asset('frontend') }}/images/course/cu-3.jpg" alt="Course">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             </div>
                             <div class="price">
                                 <span>Free</span>
@@ -567,7 +678,11 @@
                             <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
+<<<<<<< HEAD
                                     <a href="#"><img src="images/course/teacher/t-3.jpg" alt="teacher"></a>
+=======
+                                    <a href="#"><img src="{{ asset('frontend') }}/images/course/teacher/t-3.jpg" alt="teacher"></a>
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                                 <div class="name">
                                     <a href="#"><h6>Mark anthem</h6></a>
@@ -586,7 +701,11 @@
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
+<<<<<<< HEAD
                                 <img src="images/course/cu-4.jpg" alt="Course">
+=======
+                                <img src="{{ asset('frontend') }}/images/course/cu-4.jpg" alt="Course">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             </div>
                             <div class="price">
                                 <span>Free</span>
@@ -604,7 +723,11 @@
                             <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
+<<<<<<< HEAD
                                     <a href="#"><img src="images/course/teacher/t-4.jpg" alt="teacher"></a>
+=======
+                                    <a href="#"><img src="{{ asset('frontend') }}/images/course/teacher/t-4.jpg" alt="teacher"></a>
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                                 <div class="name">
                                     <a href="#"><h6>Mark anthem</h6></a>
@@ -623,7 +746,11 @@
                     <div class="singel-course">
                         <div class="thum">
                             <div class="image">
+<<<<<<< HEAD
                                 <img src="images/course/cu-5.jpg" alt="Course">
+=======
+                                <img src="{{ asset('frontend') }}/images/course/cu-5.jpg" alt="Course">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             </div>
                             <div class="price">
                                 <span>Free</span>
@@ -641,7 +768,11 @@
                             <a href="courses-singel.html"><h4>Learn basis javascirpt from start for beginner</h4></a>
                             <div class="course-teacher">
                                 <div class="thum">
+<<<<<<< HEAD
                                     <a href="#"><img src="images/course/teacher/t-5.jpg" alt="teacher"></a>
+=======
+                                    <a href="#"><img src="{{ asset('frontend') }}/images/course/teacher/t-5.jpg" alt="teacher"></a>
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                                 <div class="name">
                                     <a href="#"><h6>Mark anthem</h6></a>
@@ -664,7 +795,11 @@
    
     <!--====== VIDEO FEATURE PART START ======-->
     
+<<<<<<< HEAD
     <section id="video-feature" class="bg_cover pt-60 pb-110" style="background-image: url(images/bg-1.jpg)">
+=======
+    <section id="video-feature" class="bg_cover pt-60 pb-110" style="background-image: url({{ asset('frontend') }}/images/bg-1.jpg)">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-last order-lg-first">
@@ -681,7 +816,11 @@
                             <li>
                                 <div class="singel-feature">
                                     <div class="icon">
+<<<<<<< HEAD
                                         <img src="images/all-icon/f-1.png" alt="icon">
+=======
+                                        <img src="{{ asset('frontend') }}/images/all-icon/f-1.png" alt="icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                     </div>
                                     <div class="cont">
                                         <h4>Global Certificate</h4>
@@ -692,7 +831,11 @@
                             <li>
                                 <div class="singel-feature">
                                     <div class="icon">
+<<<<<<< HEAD
                                         <img src="images/all-icon/f-2.png" alt="icon">
+=======
+                                        <img src="{{ asset('frontend') }}/images/all-icon/f-2.png" alt="icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                     </div>
                                     <div class="cont">
                                         <h4>Alumni Support</h4>
@@ -703,7 +846,11 @@
                             <li>
                                 <div class="singel-feature">
                                     <div class="icon">
+<<<<<<< HEAD
                                         <img src="images/all-icon/f-3.png" alt="icon">
+=======
+                                        <img src="{{ asset('frontend') }}/images/all-icon/f-3.png" alt="icon">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                     </div>
                                     <div class="cont">
                                         <h4>Books & Library</h4>
@@ -742,7 +889,11 @@
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
+<<<<<<< HEAD
                                         <img src="images/teachers/t-1.jpg" alt="Teachers">
+=======
+                                        <img src="{{ asset('frontend') }}/images/teachers/t-1.jpg" alt="Teachers">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                     </div>
                                     <div class="cont">
                                         <a href="teachers-singel.html"><h6>Mark alen</h6></a>
@@ -753,7 +904,11 @@
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
+<<<<<<< HEAD
                                         <img src="images/teachers/t-2.jpg" alt="Teachers">
+=======
+                                        <img src="{{ asset('frontend') }}/images/teachers/t-2.jpg" alt="Teachers">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                     </div>
                                     <div class="cont">
                                         <a href="teachers-singel.html"><h6>David card</h6></a>
@@ -764,7 +919,11 @@
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
+<<<<<<< HEAD
                                         <img src="images/teachers/t-3.jpg" alt="Teachers">
+=======
+                                        <img src="{{ asset('frontend') }}/images/teachers/t-3.jpg" alt="Teachers">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                     </div>
                                     <div class="cont">
                                         <a href="teachers-singel.html"><h6>Rebeka alig</h6></a>
@@ -775,7 +934,11 @@
                             <div class="col-sm-6">
                                 <div class="singel-teachers mt-30 text-center">
                                     <div class="image">
+<<<<<<< HEAD
                                         <img src="images/teachers/t-4.jpg" alt="Teachers">
+=======
+                                        <img src="{{ asset('frontend') }}/images/teachers/t-4.jpg" alt="Teachers">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                     </div>
                                     <div class="cont">
                                         <a href="teachers-singel.html"><h6>Hanna bein</h6></a>
@@ -813,7 +976,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="singel-publication mt-30">
                         <div class="image">
+<<<<<<< HEAD
                             <img src="images/publication/p-1.jpg" alt="Publication">
+=======
+                            <img src="{{ asset('frontend') }}/images/publication/p-1.jpg" alt="Publication">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             <div class="add-cart">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
@@ -835,7 +1002,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="singel-publication mt-30">
                         <div class="image">
+<<<<<<< HEAD
                             <img src="images/publication/p-2.jpg" alt="Publication">
+=======
+                            <img src="{{ asset('frontend') }}/images/publication/p-2.jpg" alt="Publication">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             <div class="add-cart">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
@@ -857,7 +1028,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="singel-publication mt-30">
                         <div class="image">
+<<<<<<< HEAD
                             <img src="images/publication/p-3.jpg" alt="Publication">
+=======
+                            <img src="{{ asset('frontend') }}/images/publication/p-3.jpg" alt="Publication">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             <div class="add-cart">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
@@ -879,7 +1054,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-8">
                     <div class="singel-publication mt-30">
                         <div class="image">
+<<<<<<< HEAD
                             <img src="images/publication/p-4.jpg" alt="Publication">
+=======
+                            <img src="{{ asset('frontend') }}/images/publication/p-4.jpg" alt="Publication">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             <div class="add-cart">
                                 <ul>
                                     <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
@@ -906,7 +1085,11 @@
    
     <!--====== TEASTIMONIAL PART START ======-->
     
+<<<<<<< HEAD
     <section id="testimonial" class="bg_cover pt-115 pb-115" data-overlay="8" style="background-image: url(images/bg-2.jpg)">
+=======
+    <section id="testimonial" class="bg_cover pt-115 pb-115" data-overlay="8" style="background-image: url({{ asset('frontend') }}/images/bg-2.jpg)">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -920,7 +1103,11 @@
                 <div class="col-lg-6">
                     <div class="singel-testimonial">
                         <div class="testimonial-thum">
+<<<<<<< HEAD
                             <img src="images/testimonial/t-1.jpg" alt="Testimonial">
+=======
+                            <img src="{{ asset('frontend') }}/images/testimonial/t-1.jpg" alt="Testimonial">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             <div class="quote">
                                 <i class="fa fa-quote-right"></i>
                             </div>
@@ -935,7 +1122,11 @@
                 <div class="col-lg-6">
                     <div class="singel-testimonial">
                         <div class="testimonial-thum">
+<<<<<<< HEAD
                             <img src="images/testimonial/t-2.jpg" alt="Testimonial">
+=======
+                            <img src="{{ asset('frontend') }}/images/testimonial/t-2.jpg" alt="Testimonial">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             <div class="quote">
                                 <i class="fa fa-quote-right"></i>
                             </div>
@@ -950,7 +1141,11 @@
                 <div class="col-lg-6">
                     <div class="singel-testimonial">
                         <div class="testimonial-thum">
+<<<<<<< HEAD
                             <img src="images/testimonial/t-3.jpg" alt="Testimonial">
+=======
+                            <img src="{{ asset('frontend') }}/images/testimonial/t-3.jpg" alt="Testimonial">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                             <div class="quote">
                                 <i class="fa fa-quote-right"></i>
                             </div>
@@ -984,7 +1179,11 @@
                 <div class="col-lg-6">
                     <div class="singel-news mt-30">
                         <div class="news-thum pb-25">
+<<<<<<< HEAD
                             <img src="images/news/n-1.jpg" alt="News">
+=======
+                            <img src="{{ asset('frontend') }}/images/news/n-1.jpg" alt="News">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                         </div>
                         <div class="news-cont">
                             <ul>
@@ -1001,7 +1200,11 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
+<<<<<<< HEAD
                                     <img src="images/news/ns-1.jpg" alt="News">
+=======
+                                    <img src="{{ asset('frontend') }}/images/news/ns-1.jpg" alt="News">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -1020,7 +1223,11 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
+<<<<<<< HEAD
                                     <img src="images/news/ns-2.jpg" alt="News">
+=======
+                                    <img src="{{ asset('frontend') }}/images/news/ns-2.jpg" alt="News">
+>>>>>>> abcdabe9ae476174ba539ca6f2b324cb6ce9689b
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -1039,7 +1246,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="news-thum mt-30">
-                                    <img src="images/news/ns-3.jpg" alt="News">
+                                    <img src="{{ asset('frontend') }}/images/news/ns-3.jpg" alt="News">
                                 </div>
                             </div>
                             <div class="col-sm-8">
@@ -1068,32 +1275,32 @@
             <div class="row patnar-slied">
                 <div class="col-lg-12">
                     <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-1.png" alt="Logo">
+                        <img src="{{ asset('frontend') }}/images/patnar-logo/p-1.png" alt="Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-2.png" alt="Logo">
+                        <img src="{{ asset('frontend') }}/images/patnar-logo/p-2.png" alt="Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-3.png" alt="Logo">
+                        <img src="{{ asset('frontend') }}/images/patnar-logo/p-3.png" alt="Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-4.png" alt="Logo">
+                        <img src="{{ asset('frontend') }}/images/patnar-logo/p-4.png" alt="Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-2.png" alt="Logo">
+                        <img src="{{ asset('frontend') }}/images/patnar-logo/p-2.png" alt="Logo">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="singel-patnar text-center mt-40">
-                        <img src="images/patnar-logo/p-3.png" alt="Logo">
+                        <img src="{{ asset('frontend') }}/images/patnar-logo/p-3.png" alt="Logo">
                     </div>
                 </div>
             </div> <!-- row -->
@@ -1111,7 +1318,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-about mt-40">
                             <div class="logo">
-                                <a href="#"><img src="images/logo-2.png" alt="Logo"></a>
+                                <a href="#"><img src="{{ asset('frontend') }}/images/logo-2.png" alt="Logo"></a>
                             </div>
                             <p>Gravida nibh vel velit auctor aliquetn quibibendum auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate.</p>
                             <ul class="mt-20">
@@ -1228,43 +1435,43 @@
     
     
     <!--====== jquery js ======-->
-    <script src="js/vendor/modernizr-3.6.0.min.js"></script>
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="{{asset('frontend')}}/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="{{asset('frontend')}}/js/vendor/jquery-1.12.4.min.js"></script>
 
     <!--====== Bootstrap js ======-->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>
     
     <!--====== Slick js ======-->
-    <script src="js/slick.min.js"></script>
+    <script src="{{asset('frontend')}}/js/slick.min.js"></script>
     
     <!--====== Magnific Popup js ======-->
-    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset('frontend')}}/js/jquery.magnific-popup.min.js"></script>
     
     <!--====== Counter Up js ======-->
-    <script src="js/waypoints.min.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/waypoints.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.counterup.min.js"></script>
     
     <!--====== Nice Select js ======-->
-    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.nice-select.min.js"></script>
     
     <!--====== Nice Number js ======-->
-    <script src="js/jquery.nice-number.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.nice-number.min.js"></script>
     
     <!--====== Count Down js ======-->
-    <script src="js/jquery.countdown.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.countdown.min.js"></script>
     
     <!--====== Validator js ======-->
-    <script src="js/validator.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/validator.min.js"></script>
     
     <!--====== Ajax Contact js ======-->
-    <script src="js/ajax-contact.js"></script>
+    <script src="{{ asset('frontend') }}/js/ajax-contact.js"></script>
     
     <!--====== Main js ======-->
-    <script src="js/main.js"></script>
+    <script src="{{ asset('frontend') }}/js/main.js"></script>
     
     <!--====== Map js ======-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
-    <script src="js/map-script.js"></script>
+    <script src="{{ asset('frontend') }}/js/map-script.js"></script>
 
 </body>
 </html>
