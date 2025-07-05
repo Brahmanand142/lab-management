@@ -18,4 +18,4 @@ Route::get('/', function () {
 
 
 //Backend Routes
-Route::view('dahsboard','backend.dashboard');
+Route::view('dashboard','backend.dashboard');
