@@ -15,11 +15,12 @@ Route::get('/', function () {
     return view('frontend.index');
 })->name('home');
 
-    route::get('/sitesetting', function () {
-         return view('backend.sitesettings'); // Assuming you have a view file named sitesettings.blade.php
-})->name('backend.sitesetting');
-
 
 //Backend Routes
 Route::view('dashboard','backend.dashboard');
+
+    route::get('/sitesetting', function () {
+         return view('backend.sitesettings'); // Assuming you have a view file named sitesettings.blade.php
+})->name('backend.sitesetting');
+ 
  
