@@ -6,7 +6,7 @@
     {{ implode('', $errors->all('<div>:message</div>')) }}
 @endif
 
-{{ dd($settings)}}
+{{ dd($setting)}}
 
 <form action='{{route("site.settings.update")}}' method='POST'>
     @csrf
