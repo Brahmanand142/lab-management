@@ -6,11 +6,13 @@
     {{ implode('', $errors->all('<div>:message</div>')) }}
 @endif
 
+{{ dd($settings)}}
+
 <form action='{{route("site.settings.update")}}' method='POST'>
     @csrf
   <div class="mb-3">
     <label for="sitename" class="form-label">Site Name</label>
-    <input type="text" class="form-control" id="sitename" value="{{ old('sitename') }}" name='sitename'>
+    <input type="text" class="form-control" id="sitename" value="{{ old('sitename') ? old('sitename') : $setting[sitename]  }}" name='sitename'>
  </div>
 
   <div class="mb-3">
