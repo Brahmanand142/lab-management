@@ -17,7 +17,7 @@ class SiteSettingController extends Controller
 
    public function update(Request $request){
   
-   try{
+   try{ 
  $request->validate([
         // 'phone' => 'required|max:10|min:10|integer'
         'phone' => 'required|digits:10', 
