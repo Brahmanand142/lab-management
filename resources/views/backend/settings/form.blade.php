@@ -12,6 +12,7 @@
     </div>
 @endif
 
+{{ dd($setting)}}
 
 
 <form action='{{route("site.settings.update")}}' method='POST' enctype="multipart/form-data">
