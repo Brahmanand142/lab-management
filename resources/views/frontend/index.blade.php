@@ -76,14 +76,14 @@
                     <div class="col-lg-6">
                         <div class="header-contact text-lg-left text-center">
                             <ul>
-                                <li><img src="{{ asset('frontend') }}/images/all-icon/map.png" alt="icon"><span>127/5 Mark street, New york</span></li>
-                                <li><img src="{{ asset('frontend') }}/images/all-icon/email.png" alt="icon"><span>info@yourmail.com</span></li>
+                                <li><img src="{{ asset('frontend') }}/images/all-icon/map.png" alt="icon"><span>{{ $settings['address'] ?? '127/5 Mark street, New york' }}</span></li>
+                                <li><img src="{{ asset('frontend') }}/images/all-icon/email.png" alt="icon"><span>{{ $settings['email'] ?? 'info@yourmail.com' }}</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="header-opening-time text-lg-right text-center">
-                            <p>Opening Hours : Monday to Saturay - 8 Am to 5 Pm</p>
+                            <p>Opening Hours : {{ $settings['opening_hours'] ?? 'Monday to Saturday - 8 AM to 5 PM' }}</p>
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -96,7 +96,7 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="logo">
                             <a href="index-2.html">
-                                <img src="{{ asset('frontend') }}/images/logo.png" alt="Logo">
+                                <img src="{{ asset($settings['logo'] ?? 'frontend/images/logo.png') }}" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -1168,7 +1168,7 @@
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>{{ $settings['address'] ?? '143 castle road 517 district, kiyev port south Canada' }}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -1176,7 +1176,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>+3 123 456 789</p>
+                                        <p>{{ $settings['phone'] ?? '+3 123 456 789' }}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -1184,7 +1184,7 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>{{ $settings['email'] ?? 'info@yourmail.com' }}</p>
                                     </div>
                                 </li>
                             </ul>
