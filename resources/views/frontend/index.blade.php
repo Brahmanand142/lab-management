@@ -377,9 +377,6 @@
     </section>
     
     <!--====== TEACHERS PART ENDS ======-->
-<<<<<<< HEAD
-    @endsection
-=======
    
     <!--====== PUBLICATION PART START ======-->
     
@@ -857,4 +854,3 @@
 
 </body>
 </html>
->>>>>>> 85c9058f459c293820db7b6d0eaa446d46b3b50d
