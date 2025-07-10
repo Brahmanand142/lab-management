@@ -1,5 +1,3 @@
- <!--====== FOOTER PART START ======-->
-    
     <footer id="footer-part">
         <div class="footer-top pt-40 pb-70">
             <div class="container">
@@ -64,7 +62,7 @@
                                         <i class="fa fa-home"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>143 castle road 517 district, kiyev port south Canada</p>
+                                        <p>{{ $settings['address'] ?? '143 castle road 517 district, kiyev port south Canada' }}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -72,7 +70,7 @@
                                         <i class="fa fa-phone"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>+3 123 456 789</p>
+                                        <p>{{ $settings['phone'] ?? '+3 123 456 789' }}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -80,7 +78,7 @@
                                         <i class="fa fa-envelope-o"></i>
                                     </div>
                                     <div class="cont">
-                                        <p>info@yourmail.com</p>
+                                        <p>{{ $settings['email'] ?? 'info@yourmail.com' }}</p>
                                     </div>
                                 </li>
                             </ul>
@@ -89,23 +87,56 @@
                 </div> <!-- row -->
             </div> <!-- container -->
         </div> <!-- footer top -->
-        
-        <div class="footer-copyright pt-10 pb-25">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="copyright text-md-left text-center pt-15">
-                            <p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a> </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="copyright text-md-right text-center pt-15">
-                           
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- footer copyright -->
-    </footer>
+          
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
     
-    <!--====== FOOTER PART ENDS ======-->
+    <!--====== BACK TO TP PART ENDS ======-->
+   
+    
+    
+    
+    
+    
+    
+    
+    <!--====== jquery js ======-->
+    <script src="{{asset('frontend')}}/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="{{asset('frontend')}}/js/vendor/jquery-1.12.4.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="{{asset('frontend')}}/js/bootstrap.min.js"></script>
+    
+    <!--====== Slick js ======-->
+    <script src="{{asset('frontend')}}/js/slick.min.js"></script>
+    
+    <!--====== Magnific Popup js ======-->
+    <script src="{{asset('frontend')}}/js/jquery.magnific-popup.min.js"></script>
+    
+    <!--====== Counter Up js ======-->
+    <script src="{{ asset('frontend') }}/js/waypoints.min.js"></script>
+    <script src="{{ asset('frontend') }}/js/jquery.counterup.min.js"></script>
+    
+    <!--====== Nice Select js ======-->
+    <script src="{{ asset('frontend') }}/js/jquery.nice-select.min.js"></script>
+    
+    <!--====== Nice Number js ======-->
+    <script src="{{ asset('frontend') }}/js/jquery.nice-number.min.js"></script>
+    
+    <!--====== Count Down js ======-->
+    <script src="{{ asset('frontend') }}/js/jquery.countdown.min.js"></script>
+    
+    <!--====== Validator js ======-->
+    <script src="{{ asset('frontend') }}/js/validator.min.js"></script>
+    
+    <!--====== Ajax Contact js ======-->
+    <script src="{{ asset('frontend') }}/js/ajax-contact.js"></script>
+    
+    <!--====== Main js ======-->
+    <script src="{{ asset('frontend') }}/js/main.js"></script>
+    
+    <!--====== Map js ======-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDC3Ip9iVC0nIxC6V14CKLQ1HZNF_65qEQ"></script>
+    <script src="{{ asset('frontend') }}/js/map-script.js"></script>
+
+</body>
+</html>
