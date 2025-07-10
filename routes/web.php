@@ -20,12 +20,7 @@ Route::get('/login', function () {
     return view('frontend.login.form'); // This points to resources/views/login/form.blade.php
 })->name('login-form');
  //register
- Route::get('/register', function () {
-    return view('frontend.login.register'); // This points to resources/views/login/form.blade.php
-})->name('register.form');
-
-// Route::get('settings',[RegisterController::class,'index'])->name('register.form');
-// Route::post('settings/update',[RegisterController::class,'update'])->name('register.form.update');
+ 
  
 
 
