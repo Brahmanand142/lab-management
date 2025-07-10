@@ -10,31 +10,36 @@ class SiteSettingController extends Controller
 {
 
    public function index(){
-     $setting = Setting::pluck('value','key')->toArray();
-     // dd($setting['phone']);
-     return view('backend.settings.form' , compact('setting'));
-  }
- 
-
-   public function update(Request $request){
-  
-   try{
- $request->validate([
-        // 'phone' => 'required|max:10|min:10|integer'
-        'phone' => 'required|digits:10', 
-        'email' => 'required|email|max:250',
-        'name' => 'required|string|max:250',
-         'facebook' => 'nullable|url|max:255'
-    ]);
     $settings = Setting::pluck('value','key')->toArray();
     // dd($settings);
     return view('backend.settings.form' , compact('settings'));
    }
 
-           catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
+   public function update(Request $request){
+  
+//    try{
+ $request->validate([
+      'sitename' => 'required|string|max:255',
+      'phone' => 'required|digits:10',
+      'address' => 'required|string|max:255',
+      'email' => 'required|email|max:255',
+      'opening_hours' => 'nullable|string|max:255',
+      'facebook' => 'nullable|url|max:255',
+      'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+  ]);
+
+    if ($request->hasFile('logo')) {
+        $logo = $request->file('logo');
+        $logoName = time().'_'.$logo->getClientOriginalName();
+        $logoPath = $logo->storeAs('public/logos', $logoName);
+        $logoUrl = 'storage/logos/'.$logoName;
+
+        $existingLogo = Setting::where('key', 'logo')->value('value');
+        if ($existingLogo && \Storage::exists(str_replace('storage/', 'public/', $existingLogo))) {
+            \Storage::delete(str_replace('storage/', 'public/', $existingLogo));
         }
     
 }
 
+}
 }
