@@ -38,8 +38,17 @@ class SiteSettingController extends Controller
         if ($existingLogo && \Storage::exists(str_replace('storage/', 'public/', $existingLogo))) {
             \Storage::delete(str_replace('storage/', 'public/', $existingLogo));
         }
-    
+    Setting::updateorCreate(['key' => 'logo'], ['key' => 'logo', 'value' => $logoUrl])
+;    
 }
 
-}
+    foreach($request->except('_token', 'logo') as $key => $value){
+        Setting::updateOrCreate(['key' =>$key],['key' => $key ,'value' => $value]);
+    }
+
+    return redirect()->back();
+//    }catch(\Exception $e){
+    // dd($e);
+    return redirect()->back();
+   }
 }
