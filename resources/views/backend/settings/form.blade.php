@@ -53,7 +53,7 @@
       <label for="logo" class="form-label">Site Logo</label>
       <input type="file" class="form-control" id="logo" name="logo">
       @if(isset($settings['logo']))
-          <img src="{{ asset('storage/' . $settings['logo']) }}" alt="Site Logo" class="mt-2" style="max-width: 150px;">
+          <img src="{{ asset('settings/' . $settings['logo']) }}" alt="Site Logo" class="mt-2" style="max-width: 150px;">
       @endif     
   </div>
 
