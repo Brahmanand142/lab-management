@@ -15,11 +15,11 @@ use App\Http\Controllers\SiteSettingController;
 Route::get('/', function () {
     return view('frontend.index');
 })->name('home');
+
+
+
 //login
-Route::get('/login', function () {
-    return view('frontend.login.form'); // This points to resources/views/login/form.blade.php
-})->name('login-form');
- //register
+Route::view('/login','frontend.login.form')->name('login.form');
  
  
 
