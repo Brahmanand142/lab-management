@@ -52,8 +52,9 @@
   <div class="mb-3">
       <label for="logo" class="form-label">Site Logo</label>
       <input type="file" class="form-control" id="logo" name="logo">
-{{ dd(asset(public_path().'/setting'.$settings["logo"])) }}
-      
+      @if(isset($settings['logo']))
+          <img src="{{ asset('storage/' . $settings['logo']) }}" alt="Site Logo" class="mt-2" style="max-width: 150px;">
+      @endif     
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
