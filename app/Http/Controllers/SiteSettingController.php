@@ -34,23 +34,7 @@ if($request->logo && $request->hasFile('logo')){
     $path = public_path().'/settings';
     $file->move($path,$filename);
     Setting::updateOrCreate(['key' => 'logo'], ['key' => 'logo', 'value' => $filename]);
-//     // }
-//   dd($request->all());
-
-    // if ($request->hasFile('logo')) {
-    //     $logo = $request->file('logo');
-    //     $logoName = time().'_'.$logo->getClientOriginalName();
-    //     $logoPath = $logo->storeAs('public/logos', $logoName);
-    //     $logoUrl = 'storage/logos/'.$logoName;
-
-    //     $existingLogo = Setting::where('key', 'logo')->value('value');
-    //     if ($existingLogo && \Storage::exists(str_replace('storage/', 'public/', $existingLogo))) {
-    //         \Storage::delete(str_replace('storage/', 'public/', $existingLogo));
-    //     }
-
-    //     Setting::updateOrCreate(['key' => 'logo'], ['key' => 'logo', 'value' => $logoUrl]);
-    // }
-
+ 
     foreach($request->except('_token', 'logo') as $key => $value){
         Setting::updateOrCreate(['key' =>$key],['key' => $key ,'value' => $value]);
     }

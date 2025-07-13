@@ -52,7 +52,7 @@
   <div class="mb-3">
       <label for="logo" class="form-label">Site Logo</label>
       <input type="file" class="form-control" id="logo" name="logo">
-{{ dd(asset(public_path().'/setting'.$settings["logo"])) }}
+<!-- {{ dd(asset(public_path().'/setting'.$settings["logo"])) }} -->
       
   </div>
 
