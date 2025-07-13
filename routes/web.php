@@ -11,20 +11,24 @@ use App\Http\Controllers\SiteSettingController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Frontend Routes
 Route::get('/', function () {
     return view('frontend.index');
 })->name('home');
+//login
+Route::get('/login', function () {
+    return view('frontend.login.form'); // This points to resources/views/login/form.blade.php
+})->name('login-form');
+ //register
+ 
+ 
 
-//     route::get('/sitesetting', function () {
-//          return view('backend.sitesettings'); // Assuming you have a view file named sitesettings.blade.php
-// })->name('backend.sitesetting');
 
 
 //Backend Routes
 Route::view('dashboard','backend.dashboard')->name('dashboard');
 
 //settings route
-Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings'); 
+Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
  

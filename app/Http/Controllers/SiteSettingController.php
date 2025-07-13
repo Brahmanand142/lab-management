@@ -7,6 +7,7 @@ use App\Setting;
 
 class SiteSettingController extends Controller
 {
+
    public function index(){
     $settings = Setting::pluck('value','key')->toArray();
     // dd($settings);
