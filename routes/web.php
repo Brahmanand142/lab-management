@@ -32,3 +32,4 @@ Route::view('dashboard','backend.dashboard')->name('dashboard');
 Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
  
+Route::resource('assignments', 'AssignmentController');
