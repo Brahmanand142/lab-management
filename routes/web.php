@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 //login
 Route::view('/login','frontend.login.form')->name('login.form');
+Route::post('/login-submit','LoginController@login')->name('login');
+Route::post('/admin','LoginController@dashboard')->name('admin')->middleware('role:admin');
  
  
 
@@ -32,3 +34,4 @@ Route::view('dashboard','backend.dashboard')->name('dashboard');
 Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
  
+Route::resource('assignments', 'AssignmentController');
