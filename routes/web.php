@@ -21,7 +21,17 @@ Route::get('/', function () {
 //login
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
-Route::post('/admin','LoginController@dashboard')->name('admin')->middleware('role:admin');
+
+// Admin Routes
+Route::middleware('role:admin')->prefix('admin')->group(function () {
+    Route::get('/', 'LoginController@dashboard')->name('admin');
+    // Add more admin-specific routes here
+});
+
+// Teacher Routes
+Route::middleware('role:teacher')->prefix('teacher')->group(function () {
+   
+});
  
  
 
