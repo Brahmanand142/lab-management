@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Setting;
+use Illuminate\Support\Facades\Storage;
 
 class SiteSettingController extends Controller
-{
+ {
 
    public function index(){
     $settings = Setting::pluck('value','key')->toArray();
