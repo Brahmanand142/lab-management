@@ -93,8 +93,7 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="logo" style="max-width: 180px;">
                             <a href="#">
-                                
-                                <img src="{{ asset($settings['logo'] ?? 'frontend/images/logo2.avif') }}" alt="Logo">
+                  <img src="{{ asset('settings/' . ($settings['logo'] ?? 'frontend/images/logo2.avif')) }}" alt="Logo" style="max-width: 80px;">
                             </a>
                         </div>
                     </div>
