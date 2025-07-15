@@ -28,20 +28,26 @@ class SiteSettingController extends Controller
       'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
   ]);
 
-    if ($request->hasFile('logo')) {
-        $logo = $request->file('logo');
-        $logoName = time().'_'.$logo->getClientOriginalName();
-        $logoPath = $logo->storeAs('public/logos', $logoName);
-        $logoUrl = 'storage/logos/'.$logoName;
 
-        $existingLogo = Setting::where('key', 'logo')->value('value');
-        if ($existingLogo && \Storage::exists(str_replace('storage/', 'public/', $existingLogo))) {
-            \Storage::delete(str_replace('storage/', 'public/', $existingLogo));
+if($request->logo && $request->hasFile('logo')){
+    $file = $request->logo;
+    $filename =  time().'_'. rand(10,11111111111111) .$file->getClientOriginalName();
+    $path = public_path().'/settings';
+    $file->move($path,$filename);
+
+    $file_exist = Setting::where('key','logo')->first();
+    // dd($file_exist);
+    if($file_exist){
+         $filepath = public_path() .'/'.("settings/$file_exist->value");
+        //  dd($filepath);
+        if(file_exists($filepath)){
+            unlink($filepath);
         }
     Setting::updateorCreate(['key' => 'logo'], ['key' => 'logo', 'value' => $logoUrl])
 ;    
 }
 
+    Setting::updateOrCreate(['key' => 'logo'], ['key' => 'logo', 'value' => $filename]);
     foreach($request->except('_token', 'logo') as $key => $value){
         Setting::updateOrCreate(['key' =>$key],['key' => $key ,'value' => $value]);
     }
@@ -51,4 +57,5 @@ class SiteSettingController extends Controller
     // dd($e);
     return redirect()->back();
    }
+}
 }

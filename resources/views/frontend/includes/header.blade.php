@@ -1,4 +1,71 @@
-  <header id="header-part">
+   <!doctype html>
+<html lang="en">
+<head>
+   
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!--====== Title ======-->
+    <title>Edubin - LMS Education HTML Template</title>
+    
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="{{ asset('frontend') }}/images/favicon.png" type="image/png">
+
+    <!--====== Slick css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/slick.css">
+
+    <!--====== Animate css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/animate.css">
+    
+    <!--====== Nice Select css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/nice-select.css">
+    
+    <!--====== Nice Number css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/jquery.nice-number.min.css">
+
+    <!--====== Magnific Popup css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/magnific-popup.css">
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/bootstrap.min.css">
+    
+    <!--====== Fontawesome css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/font-awesome.min.css">
+    
+    <!--====== Default css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/default.css">
+    
+    <!--====== Style css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/style.css">
+    
+    <!--====== Responsive css ======-->
+    <link rel="stylesheet" href="{{ asset('frontend') }}/css/responsive.css">
+  
+  
+</head>
+
+<body>
+   
+    <!--====== PRELOADER PART START ======-->
+    
+    <div class="preloader">
+        <div class="loader rubix-cube">
+            <div class="layer layer-1"></div>
+            <div class="layer layer-2"></div>
+            <div class="layer layer-3 color-1"></div>
+            <div class="layer layer-4"></div>
+            <div class="layer layer-5"></div>
+            <div class="layer layer-6"></div>
+            <div class="layer layer-7"></div>
+            <div class="layer layer-8"></div>
+        </div>
+    </div>
+    
+   
+   <header id="header-part">
        
         <div class="header-top d-none d-lg-block">
             <div class="container">
@@ -6,14 +73,14 @@
                     <div class="col-lg-6">
                         <div class="header-contact text-lg-left text-center">
                             <ul>
-                                <li><img src="{{ asset('frontend') }}/images/all-icon/map.png" alt="icon"><span>127/5 Mark street, New york</span></li>
-                                <li><img src="{{ asset('frontend') }}/images/all-icon/email.png" alt="icon"><span>info@yourmail.com</span></li>
+                                <li><img src="{{ asset('frontend') }}/images/all-icon/map.png" alt="icon"><span>{{ $settings['address'] ?? '127/5 Mark street, New york' }}</span></li>
+                                <li><img src="{{ asset('frontend') }}/images/all-icon/email.png" alt="icon"><span>{{ $settings['email'] ?? 'info@yourmail.com' }}</span></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="header-opening-time text-lg-right text-center">
-                            <p>Opening Hours : Monday to Saturay - 8 Am to 5 Pm</p>
+                            <p>Opening Hours : {{ $settings['opening_hours'] ?? 'Monday to Saturday - 8 AM to 5 PM' }}</p>
                         </div>
                     </div>
                 </div> <!-- row -->
@@ -26,7 +93,7 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="logo">
                             <a href="index-2.html">
-                                <img src="{{ asset('frontend') }}/images/logo.png" alt="Logo">
+                                <img src="{{ asset($settings['logo'] ?? 'frontend/images/logo.png') }}" alt="Logo">
                             </a>
                         </div>
                     </div>
@@ -42,8 +109,7 @@
                                 </div>
                             </div>
                             <div class="button float-left">
-                                <a href="{{route('login-form')}}" class="main-btn">Login</a>
-                                     <a href="{{route('register.form')}}" class="main-btn">Register</a>
+                                <a href="#" class="main-btn">Apply Now</a>
                             </div>
                         </div>
                     </div>

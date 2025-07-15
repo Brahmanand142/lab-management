@@ -15,17 +15,24 @@ use App\Http\Controllers\SiteSettingController;
 Route::get('/', function () {
     return view('frontend.index');
 })->name('home');
-//login
-Route::get('/login', function () {
-    return view('frontend.login.form'); // This points to resources/views/login/form.blade.php
-})->name('login-form');
- //register
- Route::get('/register', function () {
-    return view('frontend.login.register'); // This points to resources/views/login/form.blade.php
-})->name('register.form');
 
-// Route::get('settings',[RegisterController::class,'index'])->name('register.form');
-// Route::post('settings/update',[RegisterController::class,'update'])->name('register.form.update');
+
+
+//login
+Route::view('/login','frontend.login.form')->name('login.form');
+Route::post('/login-submit','LoginController@login')->name('login');
+
+// Admin Routes
+Route::middleware('role:admin')->prefix('admin')->group(function () {
+    Route::get('/', 'LoginController@dashboard')->name('admin');
+    // Add more admin-specific routes here
+});
+
+// Teacher Routes
+Route::middleware('role:teacher')->prefix('teacher')->group(function () {
+   
+});
+ 
  
 
 
@@ -37,3 +44,4 @@ Route::view('dashboard','backend.dashboard')->name('dashboard');
 Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
  
+Route::resource('assignments', 'AssignmentController');
