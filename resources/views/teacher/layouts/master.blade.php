@@ -49,7 +49,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('teacher.includes.footer')
+            @include('backend.includes.footer')
             <!-- End of Footer -->
 
         </div>

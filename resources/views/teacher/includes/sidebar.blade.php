@@ -20,58 +20,53 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-            <!-- Nav Item - Charts -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="{{ route('home')}}" target='_blank'>
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Website</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('site.settings')}}"> 
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Site Setting</span></a>
-            </li> -->
+           
              
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-              
-                    <span> Web Technology-1 Lab</span></a>
-                    
-            </li>
+ <!-- Sidebar Subject Dropdown -->
+ <!-- Sidebar Item with Toggle -->
+ <!-- Sidebar Item with Toggle -->
+<li class="nav-item">
+  <a class="nav-link" data-bs-toggle="collapse" href="#subjectsMenu" role="button" aria-expanded="false" aria-controls="subjectsMenu">
+    📘 <span>Subjects Name</span>
+  </a>
 
-              <li class="nav-item">
-                      <a class="nav-link" href=""> 
-               
-                    <span>Web Technology-2 Lab</span></a>
-                    
-            </li>
-              <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>MultiMedia Lab</span></a>
-            </li>
+  <!-- Collapsible Submenu -->
+  <div class="collapse ps-3" id="subjectsMenu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Web Technology-1 Lab</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Web Technology-2 Lab</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">MultiMedia Lab</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Java Lab</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">DBMS Lab</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">OS Lab</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">IoT Lab</a>
+      </li>
+    </ul>
+  </div>
+</li>
 
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>Java Lab</span></a>
-            </li>
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>DBMS Lab</span></a>
-            </li>
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>OS Lab</span></a>
-            </li>
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>IoT Lab</span></a>
-            </li>
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
         </ul>
+        
+        <!-- Add this just before closing </body> tag -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+

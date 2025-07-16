@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Assignment;
+use App\Lab;
 use Illuminate\Http\Request;
-use App\User;
-class AssignmentController extends Controller
+
+class LabController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        //get all from teachers andsend it to blade
-        $assignments = Assignment::paginate(20);
-        return view('teacher.assignment.show', compact('assignments'));
+        //
     }
 
     /**
@@ -43,10 +41,10 @@ class AssignmentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Lab  $lab
      * @return \Illuminate\Http\Response
      */
-    public function show(Assignment $assignment)
+    public function show(Lab $lab)
     {
         //
     }
@@ -54,10 +52,10 @@ class AssignmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Lab  $lab
      * @return \Illuminate\Http\Response
      */
-    public function edit(Assignment $assignment)
+    public function edit(Lab $lab)
     {
         //
     }
@@ -66,10 +64,10 @@ class AssignmentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Lab  $lab
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Assignment $assignment)
+    public function update(Request $request, Lab $lab)
     {
         //
     }
@@ -77,10 +75,10 @@ class AssignmentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Assignment  $assignment
+     * @param  \App\Lab  $lab
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Assignment $assignment)
+    public function destroy(Lab $lab)
     {
         //
     }
