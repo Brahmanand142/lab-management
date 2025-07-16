@@ -57,6 +57,6 @@ class LoginController extends Controller
        public function dashboarduser()
        {
         // dd('Testing the user dashboard');
-          return view('frontend.dashboard');
+          return view('user.dashboard');
      }
 }

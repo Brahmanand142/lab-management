@@ -28,7 +28,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('teacher.includes.sidebar')
+        @include('user.includes.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -38,7 +38,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-               @include('teacher.includes.header')
+               @include('user.includes.header')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -49,7 +49,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('teacher.includes.footer')
+            @include('user.includes.footer')
             <!-- End of Footer -->
 
         </div>
