@@ -25,14 +25,11 @@ class LoginController extends Controller
 
                 switch($user->role){
                     case 'admin':
-                        // dd('going to admin');
-                        redirect()->intended(route('admin'));
+                      return  redirect()->intended(route('admin'));
                     case 'teacher':
-                         dd('going to teacher');
-                        redirect()->intended(route('teacher.dashboard'));
+                      return  redirect()->intended(route('teacher.dashboard'));
                     default:
-                     dd('going to user');
-                        redirect()->intended(route('user.dashboard')); 
+                      return  redirect()->intended(route('user.dashboard')); 
 
                 }
             }
