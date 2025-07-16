@@ -14,7 +14,8 @@ class LabController extends Controller
      */
     public function index()
     {
-        //
+        $labs = Lab::paginate(10);
+        return view('labs.index', compact('labs'));
     }
 
     /**
@@ -24,7 +25,7 @@ class LabController extends Controller
      */
     public function create()
     {
-        //
+        return view('labs.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class LabController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'in:active,inactive',
+        ]);
+
+        Lab::create($validated);
+
+        return redirect()->route('labs.index')->with('success', 'Lab created successfully.');
     }
 
     /**
@@ -46,7 +55,7 @@ class LabController extends Controller
      */
     public function show(Lab $lab)
     {
-        //
+        return view('labs.show', compact('lab'));
     }
 
     /**
@@ -57,7 +66,7 @@ class LabController extends Controller
      */
     public function edit(Lab $lab)
     {
-        //
+        return view('labs.edit', compact('lab'));
     }
 
     /**
@@ -69,7 +78,15 @@ class LabController extends Controller
      */
     public function update(Request $request, Lab $lab)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'sometimes|required|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'in:active,inactive',
+        ]);
+
+        $lab->update($validated);
+
+        return redirect()->route('labs.index')->with('success', 'Lab updated successfully.');
     }
 
     /**
@@ -80,6 +97,8 @@ class LabController extends Controller
      */
     public function destroy(Lab $lab)
     {
-        //
+        $lab->delete();
+
+        return redirect()->route('labs.index')->with('success', 'Lab deleted successfully.');
     }
 }

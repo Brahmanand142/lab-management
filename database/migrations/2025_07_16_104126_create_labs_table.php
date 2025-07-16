@@ -16,8 +16,8 @@ class CreateLabsTable extends Migration
         Schema::create('labs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('faculty');
-            $table->string('status');
+            $table->string('faculty')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }
