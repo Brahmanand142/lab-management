@@ -7,7 +7,7 @@ use App\Setting;
 use Illuminate\Support\Facades\Storage;
 
 class SiteSettingController extends Controller
-{
+ {
 
    public function index(){
     $settings = Setting::pluck('value','key')->toArray();
@@ -43,9 +43,7 @@ if($request->logo && $request->hasFile('logo')){
         if(file_exists($filepath)){
             unlink($filepath);
         }
-    Setting::updateorCreate(['key' => 'logo'], ['key' => 'logo', 'value' => $logoUrl])
-;    
-}
+    }
 
     Setting::updateOrCreate(['key' => 'logo'], ['key' => 'logo', 'value' => $filename]);
     foreach($request->except('_token', 'logo') as $key => $value){
@@ -57,5 +55,6 @@ if($request->logo && $request->hasFile('logo')){
     // dd($e);
     return redirect()->back();
    }
+//    }
 }
 }

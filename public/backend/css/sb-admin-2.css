@@ -11279,3 +11279,19 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+/* Example: Customizing Bootstrap nav-links for a dark theme */
+.sb-sidenav-menu-nested .nav-link {
+    color: #cbd5e0; /* Light text for nested links */
+    padding-left: 2.5rem; /* Indent nested items */
+}
+
+.sb-sidenav-menu-nested .nav-link:hover {
+    background-color: #4a5568; /* Darker background on hover */
+    color: #ffffff;
+}
+
+/* You might need to adjust arrow color if it's not inheriting */
+.sb-sidenav-collapse-arrow i {
+    color: #cbd5e0;
+}
+
