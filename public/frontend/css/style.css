@@ -436,10 +436,13 @@ p {
 
 /*===== Header Logo support =====*/
 
-.header-logo-support{
-    border-bottom: 1px solid #cecece;
-}
 
+.header-logo-support .logo {
+    max-width: 120px; 
+    display: flex;  /* adjust as needed */
+    height: auto;
+    object-fit: contain;
+}
 .support-button{}
 .support-button .support {
 	display: -moz-flex;
