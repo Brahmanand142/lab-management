@@ -21,6 +21,7 @@ Route::get('/', function () {
 //login
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
+Route::get('/logout','LoginController@logout')->name('logout');
 
 // Admin Routes
 Route::middleware('role:admin')->prefix('admin')->group(function () {
@@ -29,8 +30,9 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
 });
 
 // Teacher Routes
-Route::middleware('role:teacher')->prefix('teacher.dashboard')->group(function () {
+Route::middleware('role:teacher')->prefix('teacher')->group(function () {
      Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
+     Route::resource('assignment', 'AssignmentController');
 });
  
 // User Routes
@@ -50,4 +52,3 @@ Route::view('dashboard','backend.dashboard')->name('dashboard');
 Route::get('site-settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('site-settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
  
-Route::resource('assignments', 'AssignmentController');
