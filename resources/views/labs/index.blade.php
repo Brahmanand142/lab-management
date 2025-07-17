@@ -66,6 +66,9 @@
 </head>
 <body>
     <div class="container">
+
+
+        <a href='{{ route("lab.create")}}' class='btn btn-primary' >Create New</a>
         <h2 class="mb-4">Labs List</h2>
 
         <div class="table-responsive rounded-3">
@@ -86,7 +89,7 @@
         <td>{{ $lab->name }}</td>
         <td>{{ $lab->faculty }}</td>
         <td>
-            <a href="" class="btn btn-primary">Edit</a>
+            <a href="{{ route('lab.edit', $lab->id)}}" class="btn btn-primary">Edit</a>
             <a href="" class="btn btn-danger">Show</a>
         </td>
     </tr>

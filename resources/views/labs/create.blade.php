@@ -64,23 +64,24 @@
 <body>
     <div class="form-container">
         <h2>Create New Entry</h2>
-        <form>
+        <form action="{{ route('lab.store')}}" method='POST'>
+            @csrf
             <!-- Name Field -->
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter name" required>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" required name='name'>
             </div>
 
             <!-- Faculty Field -->
             <div class="mb-3">
                 <label for="faculty" class="form-label">Faculty</label>
-                <input type="text" class="form-control" id="faculty" placeholder="Enter faculty">
+                <input type="text" class="form-control" id="faculty" placeholder="Enter faculty" name='faculty'>
             </div>
 
             <!-- Status Field -->
             <div class="mb-4">
                 <label for="status" class="form-label">Status</label>
-                <select class="form-select" id="status" required>
+                <select class="form-select" id="status" required name='status'>
                     <option value="active" selected>Active</option>
                     <option value="inactive">Inactive</option>
                 </select>

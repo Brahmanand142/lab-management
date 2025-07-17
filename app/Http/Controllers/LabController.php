@@ -38,13 +38,14 @@ class LabController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            // 'description' => 'nullable|string',
             'status' => 'in:active,inactive',
         ]);
 
-        Lab::create($validated);
+        // dd($validated);
+        Lab::insert($validated);
 
-        return redirect()->route('labs.index')->with('success', 'Lab created successfully.');
+        return redirect()->route('lab.index')->with('success', 'Lab created successfully.');
     }
 
     /**
