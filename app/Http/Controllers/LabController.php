@@ -45,7 +45,7 @@ class LabController extends Controller
         // dd($validated);
         Lab::insert($validated);
 
-        return redirect()->route('labs .index')->with('success', 'Lab created successfully.');
+        return redirect()->route('lab.index')->with('success', 'Lab created successfully.');
     }
 
     /**
