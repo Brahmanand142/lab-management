@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
 Route::get('/logout','LoginController@logout')->name('logout');
+Route::post('/signup', 'LoginController@signup')->name('signup');
 
 // Admin Routes
 Route::middleware('role:admin')->prefix('admin')->group(function () {
