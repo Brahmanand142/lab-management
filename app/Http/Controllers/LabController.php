@@ -45,7 +45,7 @@ class LabController extends Controller
         // dd($validated);
         Lab::insert($validated);
 
-        return redirect()->route('lab.index')->with('success', 'Lab created successfully.');
+        return redirect()->route('labs .index')->with('success', 'Lab created successfully.');
     }
 
     /**
@@ -87,7 +87,7 @@ class LabController extends Controller
 
         $lab->update($validated);
 
-        return redirect()->route('labs.index')->with('success', 'Lab updated successfully.');
+        return redirect()->route('lab.index')->with('success', 'Lab updated successfully.');
     }
 
     /**
@@ -100,6 +100,6 @@ class LabController extends Controller
     {
         $lab->delete();
 
-        return redirect()->route('labs.index')->with('success', 'Lab deleted successfully.');
+        return redirect()->route('lab.index')->with('success', 'Lab deleted successfully.');
     }
 }

@@ -1,3 +1,6 @@
+@extends('teacher.layouts.master')
+@section('title','Lab Form')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,56 +12,48 @@
     <!-- Inter font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px; /* Add padding for smaller screens */
-        }
-        .form-container {
+            .form-container {
             background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px; /* Rounded corners */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 500px; /* Max width for the form */
-        }
-        .form-label {
-            font-weight: 500;
-            color: #343a40;
-        }
-        .form-control, .form-select {
-            border-radius: 8px; /* Rounded corners for inputs */
-            padding: 10px 15px;
-            border: 1px solid #ced4da;
-        }
-        .form-control:focus, .form-select:focus {
-            border-color: #80bdff;
-            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
-        }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            border-radius: 8px; /* Rounded corners for button */
-            padding: 10px 20px;
-            font-weight: 600;
-            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
-            transform: translateY(-2px); /* Slight lift on hover */
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #343a40;
-            font-weight: 700;
-        }
+                padding: 30px;
+                border-radius: 15px; /* Rounded corners */
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                max-width: 500px; /* Max width for the form */
+                margin-left: 400px; /* This will push the element to the right */
+    
+            }
+            .form-label {
+                font-weight: 500;
+                color: #343a40;
+            }
+            .form-control, .form-select {
+                border-radius: 8px; /* Rounded corners for inputs */
+                padding: 10px 15px;
+                border: 1px solid #ced4da;
+            }
+            .form-control:focus, .form-select:focus {
+                border-color: #80bdff;
+                box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+            }
+            .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+                border-radius: 8px; /* Rounded corners for button */
+                padding: 10px 20px;
+                font-weight: 600;
+                transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+            }
+            .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+                transform: translateY(-2px); /* Slight lift on hover */
+            }
+            h2 {
+                text-align: center;
+                margin-bottom: 30px;
+                color: #343a40;
+                font-weight: 700;
+            }
     </style>
 </head>
 <body>
@@ -99,3 +94,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+@endsection

@@ -1,25 +1,16 @@
-  @extends('teacher.layouts.master')
+ @extends('teacher.layouts.master')
 @section('title','Lab Table')
 @section('content')
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lab Table</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Inter font (for better aesthetics) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-       
-        .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin-top: 30px;
-        }
+        /* ... your existing CSS ... */
         .table-responsive {
             margin-top: 20px;
         }
@@ -67,7 +58,7 @@
 <body>
     <div class="container">
 
-
+  
         <a href='{{ route("lab.create")}}' class='btn btn-primary' >Create New</a>
         <h2 class="mb-4">Labs List</h2>
 
@@ -76,25 +67,28 @@
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Name/th>
+                        <th scope="col">Name</th>
                         <th scope="col">Faculty</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Loop through the assignments data -->
-@forelse ($labs as $lab)
-    <tr>
-        <td>{{ $lab->id }}</td>
-        <td>{{ $lab->name }}</td>
-        <td>{{ $lab->faculty }}</td>
-        <td>
-            <a href="{{ route('lab.edit', $lab->id)}}" class="btn btn-primary">Edit</a>
-            <a href="" class="btn btn-danger">Show</a>
-        </td>
-    </tr>
-@empty
-     
+                    @forelse ($labs as $lab)
+                        <tr>
+                            <td>{{ $lab->id }}</td>
+                            <td>{{ $lab->name }}</td>
+                            <td>{{ $lab->faculty }}</td>
+                            <td>
+                                <a href="{{ route('lab.edit', $lab->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{ route('lab.show', $lab->id) }}" class="btn btn-info">Show</a>
+                                <form action="{{ route('lab.destroy', $lab->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this lab?');">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
                         <tr>
                             <td colspan="9" class="text-center py-4">No records found.</td>
                         </tr>
@@ -103,14 +97,12 @@
             </table>
         </div>
 
-        <!-- Pagination Links -->
         <div class="d-flex justify-content-center">
-            {{ $labs->links('') }}
+            {{ $labs->links() }} {{-- Removed the empty string from links() --}}
         </div>
     </div>
 
-    <!-- Bootstrap JS CDN (Bundle includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
 @endsection
