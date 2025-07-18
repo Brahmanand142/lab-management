@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\SiteSettingController;
+use App\Http\Controllers\GeminiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,4 +54,8 @@ Route::view('dashboard','backend.dashboard')->name('dashboard');
 // Route::post('settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
 Route::get('site-settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('site-settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
+
+
+//AI integration don't touch it please
+Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
  
