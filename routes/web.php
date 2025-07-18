@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
 Route::get('/logout','LoginController@logout')->name('logout');
-Route::post('/signup', 'LoginController@signup')->name('signup');
+Route::post('/signup', 'RegistrationController@register')->name('signup');  
 
 // Admin Routes
 Route::middleware('role:admin')->prefix('admin')->group(function () {
@@ -34,7 +34,7 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
 // Teacher Routes
 Route::middleware('role:teacher')->prefix('teacher')->group(function () {
      Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
-     Route::resource('assignment', 'AssignmentController');
+    Route::resource('assignment', 'AssignmentController');
      Route::resource('lab', 'LabController');
 });
  
@@ -43,6 +43,7 @@ Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
      Route::get('/', 'LoginController@dashboarduser')->name('user.dashboard');
 });
  
+
 
 
 
@@ -59,3 +60,6 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 //AI integration don't touch it please
 Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
  
+//register
+Route::view('/register','frontend.register.registration')->name('register.registration');
+Route::post('/register','RegistrationController@login')->name('register');

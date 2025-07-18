@@ -14,7 +14,7 @@ class CreateLabsTable extends Migration
     public function up()
     {
         Schema::create('labs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+              $table->bigIncrements('id');
             $table->string('name');
             $table->string('faculty')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
