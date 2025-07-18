@@ -22,8 +22,8 @@ class Assignments extends Migration
             $table->string('subject');
             $table->string('faculty');
             $table->string('t_name');
-            $table->timestamp('updated_at');
-            $table->timestamps('created_at');
+           $table->timestamps(); // adds both created_at and updated_at
+
         });
     }
 

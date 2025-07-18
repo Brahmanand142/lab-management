@@ -56,21 +56,22 @@
 </head>
 <body>
  <form action="{{route('lab.update', $lab->id)}}" class="form-container" method="POST">
-
+@csrf
+@method('PUT')
 
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" required name="name" >
+        <input type="text" class="form-control" id="name" placeholder="Enter name" required name="name" value="{{ old('name', $lab->name) }}" >
     </div>
 
     <div class="mb-3">
         <label for="faculty" class="form-label">Faculty</label>
-        <input type="text" class="form-control" id="faculty" placeholder="Enter faculty" name="faculty"></div>
+        <input type="text" class="form-control" id="faculty" placeholder="Enter faculty" name="faculty"     value="{{ old('faculty', $lab->faculty) }}"></div>
 
     <div class="mb-4">
         <label for="status" class="form-label">Status</label>
-        <select class="form-select" id="status" required name="status">
-        </select>
+        <input class="form-select" id="status" required name="status " value="{{ old('status', $lab->status) }}">
+    </input>
     </div>
 
     <div class="d-grid">
