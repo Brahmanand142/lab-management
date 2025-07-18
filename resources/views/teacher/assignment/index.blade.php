@@ -1,4 +1,4 @@
-  @extends('teacher.layouts.master')
+   @extends('teacher.layouts.master')
 @section('title','Assignments Table')
 @section('content')
  <!DOCTYPE html>
@@ -67,7 +67,7 @@
 <body>
     <div class="container">
         <h2 class="mb-4">Assignments List</h2>
-
+        <a href="{{ route('assignment.create') }}" class="btn btn-primary">Add Assignment</a>
         <div class="table-responsive rounded-3">
             <table class="table table-striped table-hover table-bordered align-middle">
                 <thead>
@@ -94,7 +94,7 @@
                             <td>{{ $assignment->assignment_type }}</td>
                             <td>{{ $assignment->assignment_description }}</td>
                             {{-- Format Unix timestamp to a readable date --}}
-                            <td>{{ date('Y-m-d H:i:s', $assignment->submission_date) }}</td>
+                            <td>{{  $assignment->submission_date  }}</td>
                             <td>{{ $assignment->subject }}</td>
                             <td>{{ $assignment->faculty }}</td>
                             <td>{{ $assignment->t_name }}</td>
@@ -102,7 +102,11 @@
                             <td>{{ $assignment->updated_at }}</td>
                             <td>
                                 <a href=""  class="btn btn-primary">Edit</a>
-                                <a href="" class="btn btn-danger">Show</a>
+                                  <form action="{{ route('assignment.destroy', $assignment->assignment_id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this lab?');">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @empty
