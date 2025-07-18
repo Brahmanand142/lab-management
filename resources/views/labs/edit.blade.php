@@ -55,21 +55,34 @@
  </style>
 </head>
 <body>
- <form action="{{route('lab.update', $lab->id)}}" class="form-container" method="POST">
+ <form action="{{ route('lab.update', $lab->id) }}" class="form-container" method="POST">
+
+    @csrf
+    @method('PUT')
 
 
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter name" required name="name" >
+        <input type="text" class="form-control" id="name" placeholder="Enter name" required name="name" value="{{ $lab->name }}">
     </div>
 
     <div class="mb-3">
         <label for="faculty" class="form-label">Faculty</label>
-        <input type="text" class="form-control" id="faculty" placeholder="Enter faculty" name="faculty"></div>
+        <select class="form-select" id="faculty" name="faculty" required>
+            <option value="" disabled>Select a faculty</option>
+            @foreach($faculties as $facultyOption)
+                <option value="{{ $facultyOption->id }}" {{ $lab->faculty == $facultyOption->id ? 'selected' : '' }}>
+                    {{ $facultyOption->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
 
     <div class="mb-4">
         <label for="status" class="form-label">Status</label>
         <select class="form-select" id="status" required name="status">
+            <option value="active" {{ $lab->status == 'active' ? 'selected' : '' }}>Active</option>
+            <option value="inactive" {{ $lab->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
         </select>
     </div>
 

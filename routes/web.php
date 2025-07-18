@@ -35,7 +35,8 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
 Route::middleware('role:teacher')->prefix('teacher')->group(function () {
      Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
     Route::resource('assignment', 'AssignmentController');
-     Route::resource('lab', 'LabController');
+    Route::resource('lab', 'LabController');
+    Route::resource('faculties', FacultyController::class);
 });
  
 // User Routes

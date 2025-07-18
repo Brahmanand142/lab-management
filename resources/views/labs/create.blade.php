@@ -70,7 +70,12 @@
             <!-- Faculty Field -->
             <div class="mb-3">
                 <label for="faculty" class="form-label">Faculty</label>
-                <input type="text" class="form-control" id="faculty" placeholder="Enter faculty" name='faculty'>
+                <select class="form-select" id="faculty" name="faculty" required>
+                    <option value="" disabled selected>Select a faculty</option>
+                    @foreach($faculties as $faculty)
+                        <option value="{{ $faculty->id }}">{{ $faculty->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <!-- Status Field -->

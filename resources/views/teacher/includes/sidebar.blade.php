@@ -64,6 +64,14 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+
+<!-- for Faculty -->
+         <li class="nav-item active">
+                <a class="nav-link" href="{{ route('faculties.index')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Faculty</span></a>
+            </li>
+
         <!-- for labs -->
          <li class="nav-item active">
                 <a class="nav-link" href="{{ route('lab.index')}}">
