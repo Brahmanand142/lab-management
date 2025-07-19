@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Assignment extends Model
 {
-   protected $guarded = ['id'];
+     protected $guarded = [
+        'assignment_id'
+     ];
+    protected $primaryKey = 'assignment_id'; 
+    
    
 }
