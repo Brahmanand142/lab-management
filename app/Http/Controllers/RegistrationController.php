@@ -15,7 +15,7 @@ class RegistrationController extends Controller
         'faculty' => 'required|string',
     ]);
 
-    Student::create([
+    Registration::create([
         'name' => $request->name,
         'email' => $request->email,
         'faculty' => $request->faculty,

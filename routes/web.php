@@ -58,3 +58,4 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 //register
 Route::view('/register','frontend.register.registration')->name('register.registration');
 Route::post('/register','RegistrationController@login')->name('register');
+
