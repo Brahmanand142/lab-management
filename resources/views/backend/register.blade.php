@@ -1,9 +1,9 @@
-@extends('frontend.layouts.apps') 
-@section('title', 'Student Registration')
+@extends('backend.layouts.master') 
+@section('title', 'Registration')
 
 @section('content')
 <div class="container mt-5">
-    <h2>Student Registration</h2>
+    <h2>Registration</h2>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -20,12 +20,21 @@
             <label for="email" class="form-label">Email Address</label>
             <input type="email" name="email" class="form-control" required>
         </div>
-        <div class="mb-3">
-            <label for="faculty" class="form-label">Faculty</label>
-            <input type="text" name="faculty" class="form-control" required>
+         <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="email" class="form-control" required>
         </div>
+        
+         <div class="mb-3">
+          <select name="role" class="form-select" required>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        
 
-        <button type="submit" class="btn btn-primary">Register Student</button>
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>
 @endsection
