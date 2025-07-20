@@ -29,18 +29,38 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('site.settings')}}"> 
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-cogs"></i>
                     <span>Site Setting</span></a>
             </li>
              
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                      <a class="nav-link" href="{{ route('register')}}"> 
+                    <i class="fas fa-user-cog"></i>
+                    <span>Admin and Teachers</span></a>
             </li>
-
+              <li class="nav-item">
+                      <a class="nav-link" href=""> 
+                  <i class="fa fa-user-graduate"></i>
+                    <span>Students</span></a>
+            </li>
+             <li class="nav-item">
+                      <a class="nav-link" href=""> 
+                 <i class="fa fa-chalkboard-teacher"></i>
+                    <span>Teachers</span></a>
+            </li>
+             <li class="nav-item">
+                      <a class="nav-link" href=""> 
+                  <i class="fa fa-university"></i>
+                    <span>Faculty</span></a>
+            </li>
+             <li class="nav-item">
+                      <a class="nav-link" href=""> 
+                  <i class="fa fa-file-alt"></i>
+                    <span>Records</span></a>
+            </li>
+            
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

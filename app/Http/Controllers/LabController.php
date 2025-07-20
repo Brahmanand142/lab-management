@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lab;
+use App\Faculty;
 use Illuminate\Http\Request;
 
 class LabController extends Controller
@@ -14,7 +15,7 @@ class LabController extends Controller
      */
     public function index()
     {
-        $labs = Lab::paginate(10);
+        $labs = Lab::with('faculties')->paginate(10);
         return view('labs.index', compact('labs'));
     }
 
@@ -25,7 +26,8 @@ class LabController extends Controller
      */
     public function create()
     {
-        return view('labs.create');
+        $faculties = Faculty::all();
+        return view('labs.create', compact('faculties'));
     }
 
     /**
@@ -38,7 +40,7 @@ class LabController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            // 'description' => 'nullable|string',
+            'faculty' => 'nullable|required|exists:faculties,id',
             'status' => 'in:active,inactive',
         ]);
 
@@ -67,7 +69,8 @@ class LabController extends Controller
      */
     public function edit(Lab $lab)
     {
-        return view('labs.edit', compact('lab'));
+        $faculties = Faculty::all();
+        return view('labs.edit', compact('lab', 'faculties'));
     }
 
     /**

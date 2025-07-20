@@ -18,12 +18,11 @@ class Assignments extends Migration
             $table->string('assignment_name');
              $table->string('assignment_description');
             $table->string('assignment_type');
-            $table->integer('submission_date');
+            $table->timestamp('submission_date');
             $table->string('subject');
             $table->string('faculty');
             $table->string('t_name');
-           $table->timestamps(); // adds both created_at and updated_at
-
+            $table->timestamps();
         });
     }
 
@@ -34,6 +33,6 @@ class Assignments extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('assignments');
     }
 }
