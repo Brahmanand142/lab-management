@@ -60,7 +60,7 @@ class LoginController extends Controller
             case 'teacher':
                 return redirect()->intended(route('teacher.dashboard'));
             case 'student':
-                return redirect()->intended(route('user.dashboard'));
+                return redirect()->intended(route('student.dashboard'));
         }
     }
      
@@ -90,7 +90,7 @@ class LoginController extends Controller
             case 'teacher':
                 return redirect()->intended(route('teacher.dashboard'));
             default:
-                return redirect()->intended(route('user.dashboard'));
+                return redirect()->intended(route('student.dashboard'));
         }
     }
     // LOGOUT
@@ -116,7 +116,7 @@ class LoginController extends Controller
 
     public function dashboarduser()
     {
-        return view('user.dashboard');
+        return view('student.dashboard');
     }
 
 }
