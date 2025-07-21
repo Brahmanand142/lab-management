@@ -40,6 +40,14 @@ Route::middleware('role:teacher')->prefix('teacher')->group(function () {
     Route::resource('faculties', FacultyController::class);
 });
  
+
+//Students Routes
+Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
+    Route::get('/assignments', [StudentAssignmentController::class, 'index'])->name('student.assignments.index');
+    Route::get('/assignments/{assignment}', [StudentAssignmentController::class, 'show'])->name('student.assignments.show');
+    Route::post('/assignments/submit', [StudentAssignmentController::class, 'submit'])->name('student.assignments.submit');
+});
+
 // User Routes
 Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
      Route::get('/', 'LoginController@dashboarduser')->name('user.dashboard');

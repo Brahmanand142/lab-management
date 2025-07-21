@@ -42,6 +42,7 @@ class LoginController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'role'=>''
        
         ]);
 
@@ -60,7 +61,7 @@ class LoginController extends Controller
                 return redirect()->intended(route('admin'));
             case 'teacher':
                 return redirect()->intended(route('teacher.dashboard'));
-            default:
+            case 'student':
                 return redirect()->intended(route('user.dashboard'));
         }
     }
