@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\GeminiController;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,11 @@ use App\Http\Controllers\GeminiController;
 */
 //Frontend Routes
 Route::get('/', function () {
+    Mail::raw('This is the email body.', function ($message) {
+    $message->from('your_email@example.com', 'Your Name')->
+    to('recipient@example.com')
+            ->subject('Simple Email Subject');
+});
     return view('frontend.index');
 })->name('home');
 
