@@ -20,35 +20,35 @@ Route::get('/', function () {
 
 
 //login
+Route::post('signup','LoginController@signup')->name('signup');
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
 Route::get('/logout','LoginController@logout')->name('logout');
-Route::post('/signup', 'RegistrationController@register')->name('signup');  
+
 
 // Admin Routes
 Route::middleware('role:admin')->prefix('admin')->group(function () {
     Route::get('/', 'LoginController@dashboardadmin')->name('admin');
-    // Add more admin-specific routes here
+    Route::post('/register','RegistrationController@login')->name('register'); // for registering teachers and other admin in admin panel
 });
 
 // Teacher Routes
 Route::middleware('role:teacher')->prefix('teacher')->group(function () {
      Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
     Route::resource('assignment', 'AssignmentController');
-     Route::resource('lab', 'LabController');
+    Route::resource('lab', 'LabController');
+    Route::resource('faculties', FacultyController::class);
 });
  
 // User Routes
 Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
      Route::get('/', 'LoginController@dashboarduser')->name('user.dashboard');
 });
- 
-
-
 
 
 //Backend Routes
 Route::view('dashboard','backend.dashboard')->name('dashboard');
+Route::view('/register', 'backend.register')->name('register');
 
 //settings route
 // Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
@@ -60,6 +60,4 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 //AI integration don't touch it please
 Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
  
-//register
-Route::view('/register','frontend.register.registration')->name('register.registration');
-Route::post('/register','RegistrationController@login')->name('register');
+

@@ -16,7 +16,7 @@ class LoginController extends Controller
             'email'=>'required|email',
             'password' =>'required|min:6'
         ]);
-
+            // dd($request->all());
         $user = User::where('email', $request->email)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
@@ -36,23 +36,24 @@ class LoginController extends Controller
     }
 
     // SIGNUP FUNCTION
-    public function signup(Request $request)
+     public function signup(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
-            'role' => 'required|in:student,teacher,admin'
+       
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role
+            'role' => $request->student
         ]);
 
         Auth::login($user);
+  
 
         switch($user->role) {
             case 'admin':
@@ -63,7 +64,7 @@ class LoginController extends Controller
                 return redirect()->intended(route('user.dashboard'));
         }
     }
-
+     
     // LOGOUT
     public function logout()
     {
@@ -71,7 +72,7 @@ class LoginController extends Controller
             Auth::logout();
         }
 
-        return redirect()->route('auth'); // back to popup page
+        return redirect()->route('home'); // back to popup page
     }
 
     // DASHBOARD VIEWS
@@ -89,4 +90,5 @@ class LoginController extends Controller
     {
         return view('user.dashboard');
     }
+
 }

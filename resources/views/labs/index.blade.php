@@ -73,11 +73,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                   
                     @forelse ($labs as $lab)
                         <tr>
                             <td>{{ $lab->id }}</td>
                             <td>{{ $lab->name }}</td>
-                            <td>{{ $lab->faculty }}</td>
+                            <td>{{ $lab->faculties->name ?? 'Unassigned' }}</td>
                             <td>
                                 <a href="{{ route('lab.edit', $lab->id)}}" class="btn btn-primary">Edit</a>
                                 <a href="{{ route('lab.show', $lab->id) }}" class="btn btn-info">Show</a>
