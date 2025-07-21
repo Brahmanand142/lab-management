@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Mail;
 */
 //Frontend Routes
 Route::get('/', function () {
-    Mail::raw('This is the email body.', function ($message) {
-    $message->from('your_email@example.com', 'Your Name')->
-    to('recipient@example.com')
-            ->subject('Simple Email Subject');
-});
+//     Mail::raw('Test.', function ($message) {
+//     $message->from('your_email@example.com', 'Your Name')->
+//     to('recipient@example.com')
+//             ->subject('Simple Email Subject');
+// });
     return view('frontend.index');
 })->name('home');
 
@@ -70,3 +70,10 @@ Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
 //register
 Route::view('/register','frontend.register.registration')->name('register.registration');
 Route::post('/register','RegistrationController@login')->name('register');
+
+
+
+
+//Auth related routes
+Route::view('/password-reset','reset-form')->name('password.reset');
+Route::get('/password-reset-submit','LoginController@resetPassword')->name('password.reset.submit');
