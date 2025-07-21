@@ -9,8 +9,9 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <form method="POST" action="{{ route('signup') }} ">
+    <form action="{{ route('admin.register') }}" method="POST">
         @csrf
+   
         <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
             <input type="text" name="name" class="form-control" required>
