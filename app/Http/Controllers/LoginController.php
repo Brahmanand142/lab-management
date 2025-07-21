@@ -54,8 +54,6 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user);
-  
-
         switch($user->role) {
             case 'admin':
                 return redirect()->intended(route('admin'));
@@ -66,6 +64,35 @@ class LoginController extends Controller
         }
     }
      
+     public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            // 'role' => 'required',
+       
+        ]);
+        dd($request->all());
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            // 'role' => $request->role
+            'role' => $request->student
+        ]);
+
+        Auth::login($user);
+        switch($user->role) {
+            case 'admin':
+                return redirect()->intended(route('admin'));
+            case 'teacher':
+                return redirect()->intended(route('teacher.dashboard'));
+            default:
+                return redirect()->intended(route('user.dashboard'));
+        }
+    }
     // LOGOUT
     public function logout()
     {

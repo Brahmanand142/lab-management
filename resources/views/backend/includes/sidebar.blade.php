@@ -46,14 +46,22 @@
                     <span>Students</span></a>
             </li>
              <li class="nav-item">
-                      <a class="nav-link" href=""> 
+                      <a class="nav-link" href="{{route('table.teacher.index')}}"> 
                  <i class="fa fa-chalkboard-teacher"></i>
                     <span>Teachers</span></a>
             </li>
-             <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                  <i class="fa fa-university"></i>
+            
+<!-- for Faculty -->
+         <li class="nav-item active">
+                <a class="nav-link" href="{{ route('faculties.index')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Faculty</span></a>
+            </li>
+              <!-- for labs -->
+         <li class="nav-item active">
+                <a class="nav-link" href="{{ route('lab.index')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Labs Name</span></a>
             </li>
              <li class="nav-item">
                       <a class="nav-link" href=""> 
