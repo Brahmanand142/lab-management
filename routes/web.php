@@ -44,9 +44,6 @@ Route::middleware('role:teacher')->prefix('teacher')->group(function () {
 Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
      Route::get('/', 'LoginController@dashboarduser')->name('user.dashboard');
 });
- 
-
-
 
 
 //Backend Routes
