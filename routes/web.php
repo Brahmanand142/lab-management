@@ -53,9 +53,6 @@ Route::prefix('student')->middleware(['auth', 'role:student'])->group(function (
 Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
      Route::get('/', 'LoginController@dashboarduser')->name('user.dashboard');
 });
- 
-
-
 
 
 //Backend Routes
