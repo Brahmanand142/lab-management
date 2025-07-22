@@ -28,7 +28,7 @@
         
          <div class="mb-3">
           <select name="role" class="form-select" required>
-            <option value="student">Student</option>
+             
             <option value="teacher">Teacher</option>
             <option value="admin">Admin</option>
           </select>

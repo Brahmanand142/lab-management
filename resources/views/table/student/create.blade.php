@@ -1,10 +1,10 @@
-@extends('backend.layouts.master') 
+ @extends('backend.layouts.master')
 
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Add New Teacher</h2>
-        <a href="{{ route('backend.table.teacher.index') }}" class="btn btn-secondary">Back to Teachers List</a>
+        <h2>Add New Student</h2>
+        <a href="{{ route('table.student.index') }}" class="btn btn-secondary">Back to Students List</a>
     </div>
 
     @if ($errors->any())
@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form action="{{ route('backend.table.teacher.store') }}" method="POST">
+    <form action="{{ route('table.student.store') }}" method="POST">
         @csrf
 
         <div class="mb-3">
@@ -30,24 +30,22 @@
             <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
         </div>
 
-        
-
         <div class="mb-3">
             <label for="faculty" class="form-label">Faculty</label>
             <input type="text" class="form-control" id="faculty" name="faculty" value="{{ old('faculty') }}" required>
         </div>
 
         <div class="mb-3">
-            <label for="lab" class="form-label">Lab Assigned</label>
-            <input type="text" class="form-control" id="lab" name="lab" value="{{ old('lab') }}" required>
+            <label for="lab_id" class="form-label">Lab ID</label>
+            <input type="number" class="form-control" id="lab_id" name="lab_id" value="{{ old('lab_id') }}" required min="0">
         </div>
 
         <div class="mb-3">
-            <label for="assignment" class="form-label">Assignment (Optional)</label>
-            <input type="text" class="form-control" id="assignment" name="assignment" value="{{ old('assignment') }}">
+            <label for="assignment_id" class="form-label">Assignment ID</label>
+            <input type="number" class="form-control" id="assignment_id" name="assignment_id" value="{{ old('assignment_id') }}" required min="0">
         </div>
 
-        <button type="submit" class="btn btn-primary">Create Teacher</button>
+        <button type="submit" class="btn btn-primary">Create Student</button>
     </form>
 </div>
 @endsection

@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\GeminiController;
+use App\Http\Controllers\RegistrationController;
+ 
+ 
+ 
 use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
@@ -24,14 +28,14 @@ Route::get('/', function () {
 })->name('home');
 
 
-
+ 
 //login
 Route::post('signup','LoginController@signup')->name('signup');
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
 Route::get('/logout','LoginController@logout')->name('logout');
-Route::view('/register/form', 'backend.register')->name('register');
- Route::post('/admin/register', [LoginController::class, 'register'])->name('admin.register');
+Route::view('/register/form', 'backend.register.register')->name('assign.register');
+ Route::post('/admin/register', [RegistrationController::class, 'register'])->name('admin.register');// not done yet
 
 
 // Admin Routes
@@ -39,30 +43,42 @@ Route::middleware('role:admin')->prefix('admin')->group(function () {
 Route::get('/', 'LoginController@dashboardadmin')->name('admin');
  Route::resource('faculties', FacultyController::class);
   Route::resource('lab', 'LabController');
+  Route::resource('students', 'StudentController');
    
 // Route::view('/register','RegistrationController@login')->name('register'); // for registering teachers and other admin in admin panel
 Route::get('teachers/index', 'TeacherController@index')->name('table.teacher.index');
   Route::resource('table/teacher', TeacherController::class)->names([ // Note 'table/teacher' singular URI
-        'create' => ' backend.table.teacher.create',
-        'index' => 'backend.table.teacher.index',
-        'store' => 'backend.table.teacher.store',
-        'show' => 'backend.table.teacher.show',
-        'edit' => ' backend.table.teacher.edit',
-        'update' => 'backendtable.teacher.update',
-        'destroy' => 'backend.table.teacher.destroy',
+        'create' => 'table.teacher.create',
+        'index' => 'table.teacher.index',
+        'store' => 'table.teacher.store',
+        'show' => 'table.teacher.show',
+        'edit' => ' table.teacher.edit',
+        'update' => 'table.teacher.update',
+        'destroy' => 'table.teacher.destroy',
     ]);
 });
 
  
-
-
 // Teacher Routes
 Route::middleware('role:teacher')->prefix('teacher')->group(function () {
-     Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
-    Route::resource('assignment', 'AssignmentController');
- Route::resource('lab', 'LabController');
-    Route::get('teacher/profile', 'TeacherController@create')->name('teacher.profile');
+Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
+Route::resource('assignment', 'AssignmentController');
+Route::resource('lab', 'LabController');
+Route::get('teacher/profile', 'TeacherController@create')->name('teacher.profile');
+Route::get('student/index', 'StudentController@index')->name('student.index'); 
+Route::resource('table/student', StudentController::class)->names([ // Note 'table/teacher' singular URI
+        'create' => 'table.student.create',    
+        'index' => 'table.student.index',
+        'store' => 'table.student.store',
+        'show' => 'table.student.show',
+        'edit' => 'student.edit',
+        'update' => 'table.student.update',
+    ]);
+ Route::delete('/teacher/student/{student}', 'StudentController@destroy')->name('student.destroy');
+ 
+
 });
+ 
  
 
 //Students Routes
@@ -90,9 +106,9 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 //AI integration don't touch it please
 Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
  
-//register
-Route::view('/register','frontend.register.registration')->name('register.registration');
-Route::post('/register','RegistrationController@login')->name('register');
+// //register
+// Route::view('/register','frontend.register.registration')->name('register.registration');
+// Route::post('/register','RegistrationController@login')->name('register');
 
 
 

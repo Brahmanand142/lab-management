@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Http\Request;
 use App\Teacher;  
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rule;
+ 
 
 class TeacherController extends Controller
 {
@@ -20,7 +19,7 @@ class TeacherController extends Controller
         // return view('backend.table.teacher.index');
         $teachers = Teacher::all();
         // dd($teachers);
-        return view('backend.table.teacher.index', compact('teachers'));
+        return view('table.teacher.index', compact('teachers'));
     }
 
     /**
@@ -30,7 +29,8 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        return view('backend.table.teacher.create');
+        
+        return view('table.teacher.create' );
     }
 
     /**
@@ -41,23 +41,18 @@ class TeacherController extends Controller
      */
        public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:teachers,email', // Unique to teachers table
-            'faculty' => 'required|string|max:255',
-            'lab' => 'required|string|max:255',
-            'assignment' => 'nullable|string|max:255',
-        ]);
+          $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:teachers,email',
+        'faculty' => 'required|string|max:255',
+        'lab' => 'required|string|max:255',
+        'assignment' => 'nullable|string|max:255', // Assignment is nullable in your schema
+    ]);
 
-        Teacher::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'faculty' => $request->faculty,
-            'lab' => $request->lab,
-            'assignment' => $request->assignment,
-        ]);
+    // Create the teacher. Laravel will only use fields defined in $fillable.
+    Teacher::create($request->all());
 
-        return redirect()->route('backend.table.teacher.index')->with('success', 'Teacher created successfully!');
+        return redirect()->route('table.teacher.index')->with('success', 'Teacher created successfully!');
     }
     /**
      * Show the form for editing the specified teacher.
@@ -66,7 +61,8 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher) // Route Model Binding
     {
-        return view('backend.table.teacher.edit', compact('teacher'));
+        $teachers = Teacher::all();
+        return view('table.teacher.edit', compact('teacher'));
     }
 
     /**
@@ -83,8 +79,7 @@ class TeacherController extends Controller
                 'required',
                 'string',
                 'email',
-                'max:255',
-                Rule::unique('teachers')->ignore($teacher->id), // Ignore current teacher's email for uniqueness check
+                'max:255',// Ignore current teacher's email for uniqueness check
             ],
             // Password update should be optional
            
@@ -102,7 +97,7 @@ class TeacherController extends Controller
         
         $teacher->save();
 
-        return redirect()->route('backend.table.teacher.index')->with('success', 'Teacher updated successfully!');
+        return redirect()->route('table.teacher.index')->with('success', 'Teacher updated successfully!');
     }
 
     /**
@@ -113,6 +108,6 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher) // Route Model Binding
     {
         $teacher->delete();
-        return redirect()->route('backend.table.teacher.index')->with('success', 'Teacher deleted successfully!');
+        return redirect()->route('table.teacher.index')->with('success', 'Teacher deleted successfully!');
     }
 }

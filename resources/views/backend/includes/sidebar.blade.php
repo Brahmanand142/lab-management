@@ -36,12 +36,12 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register')}}"> 
+                      <a class="nav-link" href="{{ route('assign.register')}}"> 
                     <i class="fas fa-user-cog"></i>
                     <span>Admin and Teachers</span></a>
             </li>
               <li class="nav-item">
-                      <a class="nav-link" href=""> 
+                      <a class="nav-link" href="{{route('table.student.index')}}"> 
                   <i class="fa fa-user-graduate"></i>
                     <span>Students</span></a>
             </li>

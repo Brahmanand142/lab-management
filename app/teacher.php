@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class teacher extends Model
 {
-        protected $fillable = [
+         protected $fillable = [
         'name',
         'email',
-        'password',
         'faculty',
         'lab',
         'assignment',
+        // 'created_at' and 'updated_at' are handled by timestamps()
+        // 'id' is auto-incrementing
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      * @var array<int, string>

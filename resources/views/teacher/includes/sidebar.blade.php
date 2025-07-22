@@ -51,6 +51,10 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Assignment</span></a>
             </li>
+                <li class="nav-item">
+                      <a class="nav-link" href="{{route('table.student.index')}}"> 
+                  <i class="fa fa-user-graduate"></i>
+                    <span>Students</span></a> 
 
         </ul>
         
