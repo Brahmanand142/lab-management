@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\User; 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 class LoginController extends Controller
 {
     // LOGIN FUNCTION
@@ -119,4 +120,20 @@ class LoginController extends Controller
         return view('student.dashboard');
     }
 
-}
+
+    public function resetPassword(Request $request){
+            $request->validate([
+                    'email' => 'required|email'
+            ]);
+
+            $user = User::where('email', $request->email)->first();
+            if($user)
+                $token = Str::random(64);
+                $affected = DB::CreateorUpdate('update password_reset set token = $token where name = ?', ['John']);
+                return redirect()->route('password.reset.token', ['token' => $token]);
+                 
+
+    }
+     
+    }
+

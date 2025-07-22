@@ -2,9 +2,7 @@
 
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\GeminiController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\LabController;
- 
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +15,11 @@ use App\Http\Controllers\LabController;
 */
 //Frontend Routes
 Route::get('/', function () {
+//     Mail::raw('Test.', function ($message) {
+//     $message->from('your_email@example.com', 'Your Name')->
+//     to('recipient@example.com')
+//             ->subject('Simple Email Subject');
+// });
     return view('frontend.index');
 })->name('home');
 
@@ -87,4 +90,13 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 //AI integration don't touch it please
 Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
  
+//register
+Route::view('/register','frontend.register.registration')->name('register.registration');
+Route::post('/register','RegistrationController@login')->name('register');
 
+
+
+
+//Auth related routes
+Route::view('/password-reset','frontend.login.reset-form')->name('password.reset');
+Route::post('/password-reset-submit','LoginController@resetPassword')->name('password.reset.submit');
