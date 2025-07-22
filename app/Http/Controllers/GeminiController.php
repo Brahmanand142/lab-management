@@ -10,7 +10,7 @@ class GeminiController extends Controller
    public function handlePrompt(Request $request)
     {
         
-        $text = $request->input('text');
+        $text = "You are an agriculture expert. Analyze the following crop issue and provide advice in HTML format using bullet points: " . $request->input('text');
 
         $client = new Client();
 
@@ -36,3 +36,32 @@ class GeminiController extends Controller
         return response()->json(['reply' => $reply]);
     }
 }
+
+
+// <textarea id="user-input" placeholder="Describe your crop issue..."></textarea>
+// <button id="submit">Get Advice</button>
+
+// <div id="response-container"></div>
+
+// <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+// <script>
+// $('#submit').on('click', function () {
+//     const userInput = $('#user-input').val();
+
+//     $.ajax({
+//         url: '{{ route('gemini.prompt') }}', // Using named route
+//         type: 'POST',
+//         data: {
+//             text: userInput,
+//             _token: '{{ csrf_token() }}' // Laravel CSRF token
+//         },
+//         success: function (data) {
+//             $('#response-container').html(data.reply); // Insert HTML response
+//         },
+//         error: function (err) {
+//             console.error(err);
+//             $('#response-container').html('<p>Error occurred. Try again later.</p>');
+//         }
+//     });
+// });
+// </script>
