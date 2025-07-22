@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\User; 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 class LoginController extends Controller
 {
     // LOGIN FUNCTION
@@ -42,6 +43,7 @@ class LoginController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'role'=>''
        
         ]);
 
@@ -53,18 +55,45 @@ class LoginController extends Controller
         ]);
 
         Auth::login($user);
-  
+        switch($user->role) {
+            case 'admin':
+                return redirect()->intended(route('admin'));
+            case 'teacher':
+                return redirect()->intended(route('teacher.dashboard'));
+            case 'student':
+                return redirect()->intended(route('student.dashboard'));
+        }
+    }
+     
+     public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            // 'role' => 'required',
+       
+        ]);
+        dd($request->all());
 
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            // 'role' => $request->role
+            'role' => $request->student
+        ]);
+
+        Auth::login($user);
         switch($user->role) {
             case 'admin':
                 return redirect()->intended(route('admin'));
             case 'teacher':
                 return redirect()->intended(route('teacher.dashboard'));
             default:
-                return redirect()->intended(route('user.dashboard'));
+                return redirect()->intended(route('student.dashboard'));
         }
     }
-     
     // LOGOUT
     public function logout()
     {
@@ -88,7 +117,23 @@ class LoginController extends Controller
 
     public function dashboarduser()
     {
-        return view('user.dashboard');
+        return view('student.dashboard');
     }
 
-}
+
+    public function resetPassword(Request $request){
+            $request->validate([
+                    'email' => 'required|email'
+            ]);
+
+            $user = User::where('email', $request->email)->first();
+            if($user)
+                $token = Str::random(64);
+                $affected = DB::CreateorUpdate('update password_reset set token = $token where name = ?', ['John']);
+                return redirect()->route('password.reset.token', ['token' => $token]);
+                 
+
+    }
+     
+    }
+

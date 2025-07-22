@@ -16,6 +16,7 @@ class LabController extends Controller
     public function index()
     {
         $labs = Lab::with('faculties')->paginate(10);
+      
         return view('labs.index', compact('labs'));
     }
 

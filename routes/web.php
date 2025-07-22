@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\GeminiController;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,11 @@ use App\Http\Controllers\GeminiController;
 */
 //Frontend Routes
 Route::get('/', function () {
+//     Mail::raw('Test.', function ($message) {
+//     $message->from('your_email@example.com', 'Your Name')->
+//     to('recipient@example.com')
+//             ->subject('Simple Email Subject');
+// });
     return view('frontend.index');
 })->name('home');
 
@@ -24,31 +30,55 @@ Route::post('signup','LoginController@signup')->name('signup');
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
 Route::get('/logout','LoginController@logout')->name('logout');
+Route::view('/register/form', 'backend.register')->name('register');
+ Route::post('/admin/register', [LoginController::class, 'register'])->name('admin.register');
 
 
 // Admin Routes
 Route::middleware('role:admin')->prefix('admin')->group(function () {
-    Route::get('/', 'LoginController@dashboardadmin')->name('admin');
-    Route::post('/register','RegistrationController@login')->name('register'); // for registering teachers and other admin in admin panel
+Route::get('/', 'LoginController@dashboardadmin')->name('admin');
+ Route::resource('faculties', FacultyController::class);
+  Route::resource('lab', 'LabController');
+   
+// Route::view('/register','RegistrationController@login')->name('register'); // for registering teachers and other admin in admin panel
+Route::get('teachers/index', 'TeacherController@index')->name('table.teacher.index');
+  Route::resource('table/teacher', TeacherController::class)->names([ // Note 'table/teacher' singular URI
+        'create' => ' backend.table.teacher.create',
+        'index' => 'backend.table.teacher.index',
+        'store' => 'backend.table.teacher.store',
+        'show' => 'backend.table.teacher.show',
+        'edit' => ' backend.table.teacher.edit',
+        'update' => 'backendtable.teacher.update',
+        'destroy' => 'backend.table.teacher.destroy',
+    ]);
 });
+
+ 
+
 
 // Teacher Routes
 Route::middleware('role:teacher')->prefix('teacher')->group(function () {
      Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
     Route::resource('assignment', 'AssignmentController');
-    Route::resource('lab', 'LabController');
-    Route::resource('faculties', FacultyController::class);
+ Route::resource('lab', 'LabController');
+    Route::get('teacher/profile', 'TeacherController@create')->name('teacher.profile');
 });
  
+
+//Students Routes
+Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
+     Route::get('/dashboard', 'LoginController@dashboardstudent')->name('student.dashboard');
+});
+
 // User Routes
 Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
-     Route::get('/', 'LoginController@dashboarduser')->name('user.dashboard');
+     Route::get('/dashboard', 'LoginController@dashboarduser')->name('user.dashboard');
 });
 
 
 //Backend Routes
 Route::view('dashboard','backend.dashboard')->name('dashboard');
-Route::view('/register', 'backend.register')->name('register');
+
 
 //settings route
 // Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
@@ -60,4 +90,13 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 //AI integration don't touch it please
 Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
  
+//register
+Route::view('/register','frontend.register.registration')->name('register.registration');
+Route::post('/register','RegistrationController@login')->name('register');
 
+
+
+
+//Auth related routes
+Route::view('/password-reset','frontend.login.reset-form')->name('password.reset');
+Route::post('/password-reset-submit','LoginController@resetPassword')->name('password.reset.submit');

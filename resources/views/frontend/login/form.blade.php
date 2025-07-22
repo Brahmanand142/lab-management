@@ -51,8 +51,13 @@
         <p class="text-center mt-3">
           Don't have an account?
           <a href="#" id="openSignup">Sign Up here</a>
-        </p>
+       </p>
+        <p class="text-center mt-3">
+          Forgotten Password?
+          <a href="{{ route('password.reset')}}"  id="openSignup">Reset</a>
+       </p>
       </form>
+       
     </div>
   </div>
 </div>
