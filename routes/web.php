@@ -75,8 +75,6 @@ Route::resource('table/student', StudentController::class)->names([ // Note 'tab
         'update' => 'table.student.update',
     ]);
  Route::delete('/teacher/student/{student}', 'StudentController@destroy')->name('student.destroy');
- 
-
 });
  
  
