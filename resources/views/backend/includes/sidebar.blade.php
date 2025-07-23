@@ -38,15 +38,15 @@
             <li class="nav-item">
                       <a class="nav-link" href="{{ route('assign.register')}}"> 
                     <i class="fas fa-user-cog"></i>
-                    <span>Admin and Teachers</span></a>
+                    <span>Registration</span></a>
             </li>
               <li class="nav-item">
-                      <a class="nav-link" href="{{route('table.student.index')}}"> 
+                      <a class="nav-link" href="{{route('student.record')}}"> 
                   <i class="fa fa-user-graduate"></i>
                     <span>Students</span></a>
             </li>
              <li class="nav-item">
-                      <a class="nav-link" href="{{route('table.teacher.index')}}"> 
+                      <a class="nav-link" href="{{route('backend.teacher.index')}}"> 
                  <i class="fa fa-chalkboard-teacher"></i>
                     <span>Teachers</span></a>
             </li>
@@ -58,16 +58,12 @@
                     <span>Faculty</span></a>
             </li>
               <!-- for labs -->
-         <li class="nav-item active">
+         <!-- <li class="nav-item active">
                 <a class="nav-link" href="{{ route('lab.index')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Labs Name</span></a>
-            </li>
-             <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                  <i class="fa fa-file-alt"></i>
-                    <span>Records</span></a>
-            </li>
+            </li> -->
+            
             
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Edit Teacher: {{ $teacher->name }}</h2>
-        <a href="{{ route('table.teacher.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route('backend.teacher.index') }}" class="btn btn-secondary">Cancel</a>
     </div>
 
     @if ($errors->any())
@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form action="{{ route('table.teacher.update', $teacher->id) }}" method="POST">
+    <form action="{{ route('backend.teacher.update', $teacher->id) }}" method="POST">
         @csrf   
         @method('PUT')  
 

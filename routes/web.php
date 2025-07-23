@@ -41,20 +41,18 @@ Route::view('/register/form', 'backend.register.register')->name('assign.registe
 // Admin Routes
 Route::middleware('role:admin')->prefix('admin')->group(function () {
 Route::get('/', 'LoginController@dashboardadmin')->name('admin');
- Route::resource('faculties', FacultyController::class);
-  Route::resource('lab', 'LabController');
-  Route::resource('students', 'StudentController');
-   
+Route::resource('faculties', FacultyController::class);
+Route::resource('/admin/lab', 'LabController');
+Route::get('std_record', 'StudentController@show')->name('student.record');
 // Route::view('/register','RegistrationController@login')->name('register'); // for registering teachers and other admin in admin panel
-Route::get('teachers/index', 'TeacherController@index')->name('table.teacher.index');
-  Route::resource('table/teacher', TeacherController::class)->names([ // Note 'table/teacher' singular URI
-        'create' => 'table.teacher.create',
-        'index' => 'table.teacher.index',
-        'store' => 'table.teacher.store',
-        'show' => 'table.teacher.show',
-        'edit' => ' table.teacher.edit',
-        'update' => 'table.teacher.update',
-        'destroy' => 'table.teacher.destroy',
+  Route::resource('teachers', TeacherController::class)->names([ // Note 'table/teacher' singular URI
+        'create' => 'backend.teacher.create',
+        'index' => 'backend.teacher.index',
+        'store' => 'backend.teacher.store',
+        'show' => 'backend.teacher.show',
+        'edit' => 'backend.teacher.edit',
+        'update' => 'backend.teacher.update',
+        'destroy' => 'backend.teacher.destroy',
     ]);
 });
 

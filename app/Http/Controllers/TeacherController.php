@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Http\Request;
 use App\Teacher;  
@@ -19,7 +20,7 @@ class TeacherController extends Controller
         // return view('backend.table.teacher.index');
         $teachers = Teacher::all();
         // dd($teachers);
-        return view('table.teacher.index', compact('teachers'));
+        return view('backend.teacher.index', compact('teachers'));
     }
 
     /**
@@ -30,7 +31,7 @@ class TeacherController extends Controller
     public function create()
     {
         
-        return view('table.teacher.create' );
+        return view('backend.teacher.create' );
     }
 
     /**
@@ -52,7 +53,7 @@ class TeacherController extends Controller
     // Create the teacher. Laravel will only use fields defined in $fillable.
     Teacher::create($request->all());
 
-        return redirect()->route('table.teacher.index')->with('success', 'Teacher created successfully!');
+        return redirect()->route('backend.teacher.index')->with('success', 'Teacher created successfully!');
     }
     /**
      * Show the form for editing the specified teacher.
@@ -62,7 +63,8 @@ class TeacherController extends Controller
     public function edit(Teacher $teacher) // Route Model Binding
     {
         $teachers = Teacher::all();
-        return view('table.teacher.edit', compact('teacher'));
+        // dd($teachers);
+        return view('backend.teacher.edit', compact('teacher'));
     }
 
     /**
@@ -97,7 +99,7 @@ class TeacherController extends Controller
         
         $teacher->save();
 
-        return redirect()->route('table.teacher.index')->with('success', 'Teacher updated successfully!');
+        return redirect()->route('backend.teacher.index')->with('success', 'Teacher updated successfully!');
     }
 
     /**
@@ -108,6 +110,6 @@ class TeacherController extends Controller
     public function destroy(Teacher $teacher) // Route Model Binding
     {
         $teacher->delete();
-        return redirect()->route('table.teacher.index')->with('success', 'Teacher deleted successfully!');
+        return redirect()->route('backend.teacher.index')->with('success', 'Teacher deleted successfully!');
     }
 }

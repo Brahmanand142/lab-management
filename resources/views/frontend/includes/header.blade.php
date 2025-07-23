@@ -133,15 +133,6 @@
                                     <li class="nav-item">
                                         <a class="active" href="index-2.html">Home</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="about.html">About us</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="contact.html">Contact</a>
-                                        <ul class="sub-menu">
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                            <li><a href="contact-2.html">Contact Us 2</a></li>
-                                        </ul>
                                     </li>
                                 </ul>
                             </div>

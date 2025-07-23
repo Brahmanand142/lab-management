@@ -4,7 +4,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Add New Teacher</h2>
-        <a href="{{ route('table.teacher.index') }}" class="btn btn-secondary">Back to Teachers List</a>
+        <a href="{{ route('backend.teacher.index') }}" class="btn btn-secondary">Back to Teachers List</a>
     </div>
 
     @if ($errors->any())
@@ -17,7 +17,7 @@
         </div>
     @endif
 
-    <form action="{{ route('table.teacher.store') }}" method="POST">
+    <form action="{{ route('backend.teacher.store') }}" method="POST">
         @csrf
 
         <div class="mb-3">

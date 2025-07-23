@@ -4,7 +4,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Teachers List</h2>
-        <a href="{{ route('table.teacher.create') }}" class="btn btn-primary">Add New Teacher</a>
+        <a href="{{ route('backend.teacher.create') }}" class="btn btn-primary">Add New Teacher</a>
     </div>
 
     @if (session('success'))
@@ -36,8 +36,8 @@
                     <td>{{ $teacher->lab }}</td>
                     <td>{{ $teacher->assignment ?? 'N/A' }}</td> {{-- Display 'N/A' if assignment is null --}}
                     <td>
-                        <a href="{{ route(' table.teacher.edit', $teacher->id) }}" class="btn btn-sm btn-info">Edit</a>
-                        <form action="{{ route('table.teacher.destroy', $teacher->id) }}" method="POST" style="display:inline-block;">
+                        <a href="{{ route('backend.teacher.edit', $teacher->id) }}" class="btn btn-sm btn-info">Edit</a>
+                        <form action="{{ route('backend.teacher.destroy', $teacher->id) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this teacher?');">Delete</button>
