@@ -95,10 +95,6 @@ Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
 //Backend Routes
 Route::view('dashboard','backend.dashboard')->name('dashboard');
 
-
-//settings route
-// Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
-// Route::post('settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
 Route::get('site-settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('site-settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
 

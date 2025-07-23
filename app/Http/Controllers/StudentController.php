@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Student; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\StudentController  ;
- 
 use Illuminate\Support\Facades\Hash; // Although password is not in students table, keeping for consistency if you add it later
 use Illuminate\Validation\Rule;
 
