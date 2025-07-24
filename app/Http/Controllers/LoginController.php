@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResetPassword;
+
+
 
 class LoginController extends Controller
 {
@@ -104,7 +108,7 @@ class LoginController extends Controller
 
         if ($user) {
             $token = Str::random(64);
-
+// dd($user);
             DB::table('password_resets')->updateOrInsert(
                 ['email' => $user->email],
                 [
@@ -112,31 +116,40 @@ class LoginController extends Controller
                     'created_at' => now()
                 ]
             );
-
-           
-            // Mail::to($user->email)->send(new ResetPasswordMail($token));
-
+            Mail::to($user->email)->send(new ResetPassword($token));
             return back()->with('status', 'We have emailed your password reset link!');
         }
 
         return back()->withErrors(['email' => 'Email address not found.']);
     }
 
+
+    public function showResetForm($token){
+        if(!$token){
+            return redirect()->back();
+        }
+
+        return view('frontend.login.password', compact('token'));
+    }
+
+
     public function updatePassword(Request $request)
     {
+        // dd($request->all());
         $request->validate([
-            'email' => 'required|email',
+            // 'email' => 'required|email',
             'token' => 'required',
             'password' => 'required|min:6|confirmed'
         ]);
+        
 
-        $reset = DB::table('password_resets')->where('email', $request->email)->first();
+        $reset = DB::table('password_resets')->where('email', "test@test.com")->first();
 
         if (!$reset || !Hash::check($request->token, $reset->token)) {
             return back()->withErrors(['token' => 'Invalid or expired token.']);
         }
 
-        $user = User::where('email', $request->email)->first();
+        $user = User::where('email', "test@test.com")->first();
 
         if (!$user) {
             return back()->withErrors(['email' => 'Email not found.']);
@@ -145,9 +158,9 @@ class LoginController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        DB::table('password_resets')->where('email', $request->email)->delete();
+        DB::table('password_resets')->where('email',"test@test.com")->delete();
 
-        return redirect()->route('auth')->with('status', 'Your password has been successfully reset.');
+        return redirect()->route('login')->with('status', 'Your password has been successfully reset.');
     }
      
     }
