@@ -6,11 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lab extends Model
 {
-  protected $guarded = ['id'];
+     protected $fillable = [
+        'name',
+        'description',
+        'status',
+        'faculty_id', // <--- IMPORTANT: Add this to fillable
+       
+    ];
 
   public function faculties()
   {
-      return $this->belongsTo(Faculty::class, 'faculty');
+        return $this->belongsTo(Faculty::class);
+       
+         
+    }
   }
+   
   
-}
+

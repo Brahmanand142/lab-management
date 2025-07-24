@@ -20,16 +20,7 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-           
-             
-
- <!-- Sidebar Subject Dropdown -->
- <!-- Sidebar Item with Toggle -->
- <!-- Sidebar Item with Toggle -->
-<li class="nav-item">
-  <a class="nav-link" data-bs-toggle="collapse" href="#subjectsMenu" role="button" aria-expanded="false" aria-controls="subjectsMenu">
-    📘 <span>Subjects Name</span>
-  </a>
+   
 
  
 
@@ -52,7 +43,7 @@
                     <span>Assignment</span></a>
             </li>
                 <li class="nav-item">
-                      <a class="nav-link" href="{{route('table.student.index')}}"> 
+                      <a class="nav-link" href="{{route('teacher.student.index')}}"> 
                   <i class="fa fa-user-graduate"></i>
                     <span>Students</span></a> 
 

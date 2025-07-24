@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student; 
 use Illuminate\Http\Request;
-use App\Http\Controllers\StudentController  ;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Hash; // Although password is not in students table, keeping for consistency if you add it later
 use Illuminate\Validation\Rule;
 
@@ -17,9 +17,10 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-           $students=Student::all();
-        return view('table.student.index', compact('students')); 
+    {   
+        $students = Student::all();
+        // dd($students);
+     return view('teacher.student.index', compact('students'));
 
     }
 
@@ -30,7 +31,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-       return view('table.student.create');
+       return view('teacher.student.create');
     }
 
     /**
@@ -57,7 +58,7 @@ class StudentController extends Controller
             'assignment_id' => $request->assignment_id,
         ]);
 
-        return redirect()->route('table.student.index')->with('success', 'Student created successfully.');
+        return redirect()->route('teacher.student.index')->with('success', 'Student created successfully.');
     }
 
     /**
@@ -69,7 +70,7 @@ class StudentController extends Controller
     public function show(Request $request)
     {
              $students=Student::all();
-        return view('backend.student', compact('students')); 
+        return view('baceacher.student', compact('students')); 
     }
 
     /**
@@ -82,7 +83,7 @@ class StudentController extends Controller
     {
         // dd($id);
             $students = Student::all(); // Retrieve all students
-            return view('table.student.edit', compact('student')); 
+            return view('teacher.student.edit', compact('student')); 
      
     }
 
@@ -119,7 +120,7 @@ class StudentController extends Controller
         ]);
 
         // Redirect back to the student index page with a success message
-        return redirect()->route('table.student.index')->with('success', 'Student updated successfully!');
+        return redirect()->route('teacher.student.index')->with('success', 'Student updated successfully!');
     }
 
     /**
@@ -133,6 +134,6 @@ class StudentController extends Controller
      
     $student->delete(); 
 
-    return redirect()->route('table.student.index')->with('success', 'Student deleted successfully!');
+    return redirect()->route('teacher.student.index')->with('success', 'Student deleted successfully!');
 }
 }

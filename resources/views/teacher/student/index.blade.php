@@ -4,7 +4,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Students List</h2>
-        <a href="{{ route('table.student.create') }}" class="btn btn-primary">Add New Student</a>
+        <a href="{{ route('teacher.student.create') }}" class="btn btn-primary">Add New Student</a>
     </div>
 
     @if (session('success'))
@@ -27,6 +27,7 @@
                 </tr>
             </thead>
               <tbody>
+              
                 @forelse($students as $student)
                 <tr>
                     <td>{{ $student->id }}</td>
@@ -36,9 +37,9 @@
                     <td>{{ $student->lab_id }}</td>
                     <td>{{ $student->assignment_id }}</td>
                     <td>
-                        <a href="{{ route('student.edit', $student->id) }}" class="btn btn-sm btn-info">Edit</a>
+                        <a href="{{ route('teacher.student.edit', $student->id) }}" class="btn btn-sm btn-info">Edit</a>
                         
-                         <form action="{{ route('student.destroy', $student->id) }}" method="POST" style="display:inline-block;">
+                         <form action="{{ route('teacher.student.destroy', $student->id) }}" method="POST" style="display:inline-block;">
                               @csrf
                                 @method('DELETE')  
     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this student?');">Delete</button>

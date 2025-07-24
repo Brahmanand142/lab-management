@@ -17,7 +17,7 @@ class LabController extends Controller
     {
         $labs = Lab::with('faculties')->paginate(10);
       
-        return view('labs.index', compact('labs'));
+        return view('labs.index', compact('labs')); 
     }
 
     /**
@@ -72,6 +72,7 @@ class LabController extends Controller
     {
         $faculties = Faculty::all();
         return view('labs.edit', compact('lab', 'faculties'));
+        
     }
 
     /**

@@ -63,23 +63,24 @@ Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
 Route::resource('assignment', 'AssignmentController');
 Route::resource('lab', 'LabController');
 Route::get('teacher/profile', 'TeacherController@create')->name('teacher.profile');
-Route::get('student/index', 'StudentController@index')->name('student.index'); 
-Route::resource('table/student', StudentController::class)->names([ // Note 'table/teacher' singular URI
-        'create' => 'table.student.create',    
-        'index' => 'table.student.index',
-        'store' => 'table.student.store',
-        'show' => 'table.student.show',
-        'edit' => 'student.edit',
-        'update' => 'table.student.update',
+Route::resource('table/students', StudentController::class)->names([ // Note 'table/teacher' singular URI
+        'create' => 'teacher.student.create',    
+        'index' => 'teacher.student.index',
+        'store' => 'teacher.student.store',
+        'show' =>'teacher.student.show',
+        'edit' => 'teacher.student.edit',
+        'update' => 'teacher.student.update',
+        'destroy' => 'teacher.student.destroy',
     ]);
- Route::delete('/teacher/student/{student}', 'StudentController@destroy')->name('student.destroy');
+ 
 });
  
  
 
 //Students Routes
 Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
-     Route::get('/dashboard', 'LoginController@dashboardstudent')->name('student.dashboard');
+Route::get('/dashboard', 'LoginController@dashboardstudent')->name('student.dashboard');
+Route::resource('assignment-submission', 'StudentAssignmentController');
 });
 
 // User Routes

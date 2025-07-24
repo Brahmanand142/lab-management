@@ -32,43 +32,30 @@
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Site Setting</span></a>
             </li> -->
-             
+          
+<!-- for Faculty -->
+          
+        <!-- for labs -->
+         <li class="nav-item active">
+                <a class="nav-link" href="" >
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Labs Name</span></a>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-              
-                    <span> Web Technology-1 Lab</span></a>
-                    
-            </li>
+    <!-- Assignments (View) -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-book"></i>
+            <span>View Assignments</span>
+        </a>
+    </li>
 
-              <li class="nav-item">
-                      <a class="nav-link" href=""> 
-               
-                    <span>Web Technology-2 Lab</span></a>
-                    
-            </li>
-              <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>MultiMedia Lab</span></a>
-            </li>
-
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>Java Lab</span></a>
-            </li>
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>DBMS Lab</span></a>
-            </li>
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>OS Lab</span></a>
-            </li>
-            <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <span>IoT Lab</span></a>
-            </li>
+    <!-- Submit Assignment -->
+    <li class="nav-item">
+        <a class="nav-link" href="">
+            <i class="fas fa-fw fa-upload"></i>
+            <span>Submit Assignment</span>
+        </a>
+    </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
