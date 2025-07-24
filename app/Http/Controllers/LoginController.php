@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ResetPassword;
+
+
 
 class LoginController extends Controller
 {
@@ -104,7 +108,7 @@ class LoginController extends Controller
 
         if ($user) {
             $token = Str::random(64);
-
+// dd($user);
             DB::table('password_resets')->updateOrInsert(
                 ['email' => $user->email],
                 [
@@ -112,43 +116,59 @@ class LoginController extends Controller
                     'created_at' => now()
                 ]
             );
+            Mail::to($user->email)->send(new ResetPassword($token, $user->email));
+return back()->with('status', 'Reset password link sent successfully.');
 
-           
-            // Mail::to($user->email)->send(new ResetPasswordMail($token));
-
-            return back()->with('status', 'We have emailed your password reset link!');
         }
 
         return back()->withErrors(['email' => 'Email address not found.']);
     }
 
+
+     public function showResetForm(Request $request, $token)
+{
+    $email = $request->query('email');
+
+    if (!$token || !$email) {
+        return redirect()->route('login')->withErrors(['message' => 'Invalid or incomplete password reset link.']);
+    }
+
+    return view('frontend.login.password', compact('token', 'email'));
+}
+
+
+
     public function updatePassword(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|email',
-            'token' => 'required',
-            'password' => 'required|min:6|confirmed'
-        ]);
+{
+    $request->validate([
+        'email' => 'required|email',
+        'token' => 'required',
+        'password' => 'required|min:6|confirmed',
+    ]);
 
-        $reset = DB::table('password_resets')->where('email', $request->email)->first();
+    // Fixed: Use $request instead of $ewquest
+    $reset = DB::table('password_resets')->where('email', $request->email)->first();
 
-        if (!$reset || !Hash::check($request->token, $reset->token)) {
-            return back()->withErrors(['token' => 'Invalid or expired token.']);
-        }
-
-        $user = User::where('email', $request->email)->first();
-
-        if (!$user) {
-            return back()->withErrors(['email' => 'Email not found.']);
-        }
-
-        $user->password = Hash::make($request->password);
-        $user->save();
-
-        DB::table('password_resets')->where('email', $request->email)->delete();
-
-        return redirect()->route('auth')->with('status', 'Your password has been successfully reset.');
+    // Check if token exists and matches hashed token in DB
+    if (!$reset || !Hash::check($request->token, $reset->token)) {
+        return back()->withErrors(['token' => 'Invalid or expired token.']);
     }
-     
+
+    $user = User::where('email', $request->email)->first();
+
+    if (!$user) {
+        return back()->withErrors(['email' => 'Email not found.']);
     }
+
+    // Update hashed password
+    $user->password = Hash::make($request->password);
+    $user->save();
+
+    // Delete the password reset token record
+    DB::table('password_resets')->where('email', $request->email)->delete();
+
+    // Return back with success status message
+    return back()->with('status', 'Your password has been successfully updated.');
+}
+}
 

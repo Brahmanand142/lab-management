@@ -109,3 +109,9 @@ Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
 //Auth related routes
 Route::view('/password-reset','frontend.login.reset-form')->name('password.reset');
 Route::post('/password-reset-submit','LoginController@resetPassword')->name('password.reset.submit');
+Route::post('/update-password','LoginController@updatePassword')->name('password.reset.update');
+Route::get('/password-reset-form/{token}','LoginController@showResetForm')->name('password.reset.link');
+ 
+
+ 
+

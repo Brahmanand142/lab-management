@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Please click <a href='{{ route("password.reset.link", $token)}}'> Here </a> to reset your password -->
+    <p>Click below to reset your password:</p>
+
+<a href="{{ route('password.reset.link', ['token' => $token, 'email' => $email]) }}">Reset Password</a>
+
+    Reset Password
+</a>
+</body>
+</html>
+
