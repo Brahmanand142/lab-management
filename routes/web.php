@@ -76,4 +76,4 @@ Route::post('/register','RegistrationController@login')->name('register');
 
 //Auth related routes
 Route::view('/password-reset','reset-form')->name('password.reset');
-Route::get('/password-reset-submit','LoginController@resetPassword')->name('password.reset.submit');
+Route::get('/password-reset-submit','LoginController')->name('password.reset.submit');
