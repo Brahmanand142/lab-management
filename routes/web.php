@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\GeminiController;
+use App\Http\Controllers\RegistrationController;
+ 
+ 
+ 
 use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
@@ -24,42 +28,69 @@ Route::get('/', function () {
 })->name('home');
 
 
-
+ 
 //login
+Route::post('signup','LoginController@signup')->name('signup');
 Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
 Route::get('/logout','LoginController@logout')->name('logout');
-Route::post('/signup', 'RegistrationController@register')->name('signup');  
+Route::view('/register/form', 'backend.register.register')->name('assign.register');
+ Route::post('/admin/register', [RegistrationController::class, 'register'])->name('admin.register');// not done yet
+
 
 // Admin Routes
 Route::middleware('role:admin')->prefix('admin')->group(function () {
-    Route::get('/', 'LoginController@dashboardadmin')->name('admin');
-    // Add more admin-specific routes here
+Route::get('/', 'LoginController@dashboardadmin')->name('admin');
+Route::resource('faculties', FacultyController::class);
+Route::resource('/admin/lab', 'LabController');
+Route::get('std_record', 'StudentController@show')->name('student.record');
+// Route::view('/register','RegistrationController@login')->name('register'); // for registering teachers and other admin in admin panel
+  Route::resource('teachers', TeacherController::class)->names([ // Note 'table/teacher' singular URI
+        'create' => 'backend.teacher.create',
+        'index' => 'backend.teacher.index',
+        'store' => 'backend.teacher.store',
+        'show' => 'backend.teacher.show',
+        'edit' => 'backend.teacher.edit',
+        'update' => 'backend.teacher.update',
+        'destroy' => 'backend.teacher.destroy',
+    ]);
 });
 
+ 
 // Teacher Routes
 Route::middleware('role:teacher')->prefix('teacher')->group(function () {
-     Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
-    Route::resource('assignment', 'AssignmentController');
-    Route::resource('lab', 'LabController');
-    Route::resource('faculties', FacultyController::class);
+Route::get('/', 'LoginController@dashboardteacher')->name('teacher.dashboard');
+Route::resource('assignment', 'AssignmentController');
+Route::resource('lab', 'LabController');
+Route::get('teacher/profile', 'TeacherController@create')->name('teacher.profile');
+Route::get('student/index', 'StudentController@index')->name('student.index'); 
+Route::resource('table/student', StudentController::class)->names([ // Note 'table/teacher' singular URI
+        'create' => 'table.student.create',    
+        'index' => 'table.student.index',
+        'store' => 'table.student.store',
+        'show' => 'table.student.show',
+        'edit' => 'student.edit',
+        'update' => 'table.student.update',
+    ]);
+ Route::delete('/teacher/student/{student}', 'StudentController@destroy')->name('student.destroy');
 });
  
+ 
+
+//Students Routes
+Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
+     Route::get('/dashboard', 'LoginController@dashboardstudent')->name('student.dashboard');
+});
+
 // User Routes
 Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
-     Route::get('/', 'LoginController@dashboarduser')->name('user.dashboard');
+     Route::get('/dashboard', 'LoginController@dashboarduser')->name('user.dashboard');
 });
- 
-
-
 
 
 //Backend Routes
 Route::view('dashboard','backend.dashboard')->name('dashboard');
 
-//settings route
-// Route::get('settings',[SiteSettingController::class,'index'])->name('site.settings');
-// Route::post('settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
 Route::get('site-settings',[SiteSettingController::class,'index'])->name('site.settings');
 Route::post('site-settings/update',[SiteSettingController::class,'update'])->name('site.settings.update');
 
@@ -67,13 +98,13 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 //AI integration don't touch it please
 Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
  
-//register
-Route::view('/register','frontend.register.registration')->name('register.registration');
-Route::post('/register','RegistrationController@login')->name('register');
+// //register
+// Route::view('/register','frontend.register.registration')->name('register.registration');
+// Route::post('/register','RegistrationController@login')->name('register');
 
 
 
 
 //Auth related routes
-Route::view('/password-reset','reset-form')->name('password.reset');
-Route::get('/password-reset-submit','LoginController')->name('password.reset.submit');
+Route::view('/password-reset','frontend.login.reset-form')->name('password.reset');
+Route::post('/password-reset-submit','LoginController@resetPassword')->name('password.reset.submit');

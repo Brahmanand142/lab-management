@@ -14,9 +14,12 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        //get all from teachers andsend it to blade
-        $assignments = Assignment::paginate(20);
-        return view('teacher.assignment.index', compact('assignments'));
+         
+        // $assignments = Assignment::paginate(20);
+        // return view('teacher.assignment.index', compact('assignments'));
+        $assignments = Assignment::paginate(10);
+return view('teacher.assignment.index', compact('assignments'));
+
     }
 
     /**
@@ -76,7 +79,7 @@ class AssignmentController extends Controller
      */
     public function edit(Assignment $assignment)
     {
-        
+       return view('teacher.assignment.edit', compact('assignment'));  
     }
 
     /**
@@ -88,7 +91,18 @@ class AssignmentController extends Controller
      */
     public function update(Request $request, Assignment $assignment)
     {
-        //
+        $validated = $request->validate([
+        'assignment_name' => 'required|string|max:255',  
+        'assignment_description' => 'nullable|string',  
+        'assignment_type' => 'required|string|max:50', 
+        'submission_date' => 'required|date',  
+        'subject' => 'required|string|max:100', 
+        'faculty' => 'required|string|max:100', 
+        't_name' => 'required|string|max:100', 
+    ]);
+    //  dd($validated);  
+    $assignment->update($validated);
+    return redirect()->route('assignment.index')->with('success', 'Assignment updated successfully.');
     }
 
     /**

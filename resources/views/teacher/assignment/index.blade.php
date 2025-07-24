@@ -86,7 +86,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Loop through the assignments data -->
                     @forelse ($assignments as $assignment)
                         <tr>
                             <td>{{ $assignment->assignment_id }}</td>
@@ -101,7 +100,7 @@
                             <td>{{ $assignment->created_at }}</td>
                             <td>{{ $assignment->updated_at }}</td>
                             <td>
-                                <a href=""  class="btn btn-primary">Edit</a>
+                                <a href="{{ route('assignment.edit', $assignment->assignment_id) }}"  class="btn btn-primary">Edit</a>
                                   <form action="{{ route('assignment.destroy', $assignment->assignment_id) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')

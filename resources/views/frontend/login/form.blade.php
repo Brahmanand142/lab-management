@@ -2,11 +2,41 @@
 @section('title', 'Login & Signup')
 @section('content')
 
+
+<!-- Signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-4">
+      <form method="POST" action="{{ route('signup') }}">
+        @csrf
+        @method('POST')
+
+        <h4 class="text-center mb-3">Sign Up</h4>
+        <div class="mb-3">
+          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" name="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <div class="d-grid">
+          <button class="btn btn-success">Sign Up</button>
+        </div>
+        <p class="text-center mt-3">
+          Already have an account?
+          <a href="#" id="openLogin">Login here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content p-4">
-      <form method="POST" action="{{ route('login') }}">
+      <form method="POST" action="{{ route('login') }}" encoding="multipart/form-data">
         @csrf
         <h4 class="text-center mb-3">Login</h4>
         <div class="mb-3">
@@ -21,48 +51,18 @@
         <p class="text-center mt-3">
           Don't have an account?
           <a href="#" id="openSignup">Sign Up here</a>
-            <a href="{{ route('password.reset')}}" id="openSignup">Reset</a>
-        </p>
+       </p>
+        <p class="text-center mt-3">
+          Forgotten Password?
+          <a href="{{ route('password.reset')}}"  id="openSignup">Reset</a>
+       </p>
       </form>
+       
     </div>
   </div>
 </div>
 
-<!-- Signup Modal -->
-<div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content p-4">
-      <form method="POST" action="{{ route('signup') }}">
-        @csrf
-        <h4 class="text-center mb-3">Sign Up</h4>
-        <div class="mb-3">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email" required>
-        </div>
-        <div class="mb-3">
-          <input type="password" name="password" class="form-control" placeholder="Password" required>
-        </div>
-        <div class="mb-3">
-          <select name="role" class="form-select" required>
-            <option value="">Select Role</option>
-            <option value="student">Student</option>
-            <option value="teacher">Teacher</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-        <div class="d-grid">
-          <button class="btn btn-success">Sign Up</button>
-        </div>
-        <p class="text-center mt-3">
-          Already have an account?
-          <a href="#" id="openLogin">Login here</a>
-        </p>
-      </form>
-    </div>
-  </div>
-</div>
+
 
 <!-- Modal Switcher Script -->
 <script>

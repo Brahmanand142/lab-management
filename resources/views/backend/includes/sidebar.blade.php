@@ -29,18 +29,42 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('site.settings')}}"> 
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-cogs"></i>
                     <span>Site Setting</span></a>
             </li>
              
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                      <a class="nav-link" href=""> 
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                      <a class="nav-link" href="{{ route('assign.register')}}"> 
+                    <i class="fas fa-user-cog"></i>
+                    <span>Registration</span></a>
             </li>
-
+              <li class="nav-item">
+                      <a class="nav-link" href="{{route('student.record')}}"> 
+                  <i class="fa fa-user-graduate"></i>
+                    <span>Students</span></a>
+            </li>
+             <li class="nav-item">
+                      <a class="nav-link" href="{{route('backend.teacher.index')}}"> 
+                 <i class="fa fa-chalkboard-teacher"></i>
+                    <span>Teachers</span></a>
+            </li>
+            
+<!-- for Faculty -->
+         <li class="nav-item active">
+                <a class="nav-link" href="{{ route('faculties.index')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Faculty</span></a>
+            </li>
+              <!-- for labs -->
+         <!-- <li class="nav-item active">
+                <a class="nav-link" href="{{ route('lab.index')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Labs Name</span></a>
+            </li> -->
+            
+            
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
