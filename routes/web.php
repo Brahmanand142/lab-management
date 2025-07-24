@@ -64,17 +64,14 @@ Route::middleware('role:teacher')->prefix('teacher')->group(function () {
 
 //Students Routes
 Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
+Route::get('/dashboard', 'LoginController@dashboarduser')->name('user.dashboard');
+
     Route::get('/assignments', [StudentAssignmentController::class, 'index'])->name('student.assignments.index');
     Route::get('/assignments/{assignment}', [StudentAssignmentController::class, 'show'])->name('student.assignments.show');
     Route::post('/assignments/submit', [StudentAssignmentController::class, 'submit'])->name('student.assignments.submit');
+
 });
-
-// User Routes
-Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
-     Route::get('/dashboard', 'LoginController@dashboarduser')->name('user.dashboard');
-});
-
-
+  
 //Backend Routes
 Route::view('dashboard','backend.dashboard')->name('dashboard');
 

@@ -27,10 +27,11 @@ class LoginController extends Controller
                     return redirect()->intended(route('admin'));
                 case 'teacher':
                     return redirect()->intended(route('teacher.dashboard'));
-                default:
+                default :
                     return redirect()->intended(route('user.dashboard'));
             }
         }
+        
 
         return back()->withErrors(['email' => 'Invalid email or password']);
     }
