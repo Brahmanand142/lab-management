@@ -7,6 +7,8 @@ use GuzzleHttp\Client;
 
 class GeminiController extends Controller
 {
+
+    // public function index()
    public function handlePrompt(Request $request)
     {
         
@@ -44,24 +46,5 @@ class GeminiController extends Controller
 // <div id="response-container"></div>
 
 // <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-// <script>
-// $('#submit').on('click', function () {
-//     const userInput = $('#user-input').val();
 
-//     $.ajax({
-//         url: '{{ route('gemini.prompt') }}', // Using named route
-//         type: 'POST',
-//         data: {
-//             text: userInput,
-//             _token: '{{ csrf_token() }}' // Laravel CSRF token
-//         },
-//         success: function (data) {
-//             $('#response-container').html(data.reply); // Insert HTML response
-//         },
-//         error: function (err) {
-//             console.error(err);
-//             $('#response-container').html('<p>Error occurred. Try again later.</p>');
-//         }
-//     });
-// });
 // </script>

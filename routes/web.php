@@ -3,6 +3,7 @@
 use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\GeminiController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SmsController;
  
  
  
@@ -111,7 +112,14 @@ Route::view('/password-reset','frontend.login.reset-form')->name('password.reset
 Route::post('/password-reset-submit','LoginController@resetPassword')->name('password.reset.submit');
 Route::post('/update-password','LoginController@updatePassword')->name('password.reset.update');
 Route::get('/password-reset-form/{token}','LoginController@showResetForm')->name('password.reset.link');
- 
+
+//sms route
+Route::get('/test-sms','SmsController@sendSms')->name('sms');
+
+//AI
+
+Route::view('/ai','ai')->name('ai');
+
 
  
 
