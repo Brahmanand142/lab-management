@@ -98,7 +98,7 @@ Route::post('site-settings/update',[SiteSettingController::class,'update'])->nam
 
 
 //AI integration don't touch it please
-Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt']);
+Route::post('/gemini/prompt', [GeminiController::class, 'handlePrompt'])->name('ai.handlePrompt');
  
 // //register
 // Route::view('/register','frontend.register.registration')->name('register.registration');

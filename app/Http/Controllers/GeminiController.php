@@ -32,8 +32,9 @@ class GeminiController extends Controller
         );
 
         $responseBody = json_decode($res->getBody(), true);
-        dd($responseBody);
-        $reply = $responseBody['candidates'][0]['content']['parts'][0]['text'] ?? 'No response received.';
+       
+        $replyRaw = $responseBody['candidates'][0]['content']['parts'][0]['text'] ?? 'No response received.';
+        $reply = preg_replace('/^```(?:html)?\s*|\s*```$/', '', trim($replyRaw));
 
         return response()->json(['reply' => $reply]);
     }

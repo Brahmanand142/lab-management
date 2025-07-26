@@ -13,28 +13,29 @@
 <p id='result'></p>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> 
+
 <script>
-
-
-$('#btn').on('click', function (event) {
-console.log("Hello");
+$(document).ready(function() {
+  $('#btn').on('click', function (event) {
+   
     event.preventDefault();
     const userInput = $('#prompt').val();
 
-
     $.ajax({
-        url: '', // Using named route
-        type: 'POST',
-        data: {
-            text: userInput,
-            _token: '{{ csrf_token() }}' // Laravel CSRF token
-        },
-        success: function (data) {
-            $('#response-container').html(data.reply); // Insert HTML response
-        },
-        error: function (err) {
-            console.error(err);
-            $('#response-container').html('<p>Error occurred. Try again later.</p>');
-        }
+      url: "{{ route('ai.handlePrompt')}}", 
+      type: 'POST',
+      data: {
+        text: userInput,
+        _token: '{{ csrf_token() }}' 
+      },
+      success: function (data) {
+        $('#result').html(data.reply); 
+      },
+      error: function (err) {
+        console.error(err);
+        $('#result').html('<p>Error occurred. Try again later.</p>');
+      }
     });
+  });
 });
+</script>

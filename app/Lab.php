@@ -16,9 +16,8 @@ class Lab extends Model
 
   public function faculties()
   {
-        return $this->belongsTo(Faculty::class);
+        return $this->belongsTo(Faculty::class,'faculty');
        
-         
     }
   }
    
