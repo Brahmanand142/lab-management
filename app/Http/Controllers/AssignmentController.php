@@ -67,8 +67,10 @@ return view('teacher.assignment.index', compact('assignments'));
      * @return \Illuminate\Http\Response
      */
     public function show(Assignment $assignment)
-    {
-        //
+     {
+            $assignments = Assignment::paginate(10);
+        //   dd($assignments);
+        return view('user.assignments.show', compact('assignments'));
     }
 
     /**
@@ -116,4 +118,18 @@ return view('teacher.assignment.index', compact('assignments'));
         $assignment->delete();
         return redirect()->route('assignment.index')->with('success', 'Assignment deleted successfully.');
     }
+    public function showSubmitForm(Request $request)
+{
+    // Collect the input data passed via query params
+       $data = $request->only([
+        'assignment_name',
+        'teacher_name',
+        'faculty',
+        'subject',
+        'labname',
+    ]);
+
+    // Pass the data to the view
+    return view('user.assignments.submit_form', $data);
+}
 }

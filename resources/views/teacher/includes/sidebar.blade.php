@@ -41,6 +41,11 @@
                 <a class="nav-link" href="{{ route('assignment.index')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Assignment</span></a>
+             <!-- for submitted assignments -->
+              <!-- <li class="nav-item active">
+                <a class="nav-link" href="{{ route('assignment.submit')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Submitted Assignment</span></a> -->
             </li>
                 <li class="nav-item">
                       <a class="nav-link" href="{{route('teacher.student.index')}}"> 

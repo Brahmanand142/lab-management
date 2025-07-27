@@ -1,4 +1,4 @@
-@extends('teacher.layouts.master')
+ @extends('teacher.layouts.master')
 @section('title','Lab Form')
 @section('content')
 <!DOCTYPE html>

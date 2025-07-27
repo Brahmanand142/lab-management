@@ -1,4 +1,4 @@
- @extends('user.layouts.master')
+  @extends('teacher.layouts.master')
 @section('title', 'Submitted Assignments')
 @section('content')
 
@@ -131,46 +131,7 @@
             </thead>
             <tbody>
                 @forelse($assignmentSubmits as $assignment)
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $assignment->student_name }}</td>
-                    <td>{{ $assignment->student_id }}</td>
-                    <td>{{ $assignment->assignment_title }}</td>
-                    <td>{{ $assignment->subject_name }}</td>
-                    <td>{{ $assignment->labname ?? '-' }}</td>
-                    <td>{{ $assignment->teacher_name ?? '-' }}</td>
-                    {{-- Safely format due_date --}}
-                    <td>{{ $assignment->due_date ? $assignment->due_date->format('Y-m-d') : '-' }}</td>
-                    <td>
-                        {{-- Safely check if assignment_files is an array and not empty --}}
-                        @if(!empty($assignment->assignment_files) && is_array($assignment->assignment_files))
-                            <ul>
-                                @foreach($assignment->assignment_files as $file)
-                                    @if(is_array($file) && isset($file['path'], $file['original_name'], $file['mime_type']))
-                                        <li>
-                                            <a target="_blank" href="{{ asset('storage/' . $file['path']) }}" title="Download {{ $file['original_name'] }}">
-                                                {{ $file['original_name'] }}
-                                            </a>
-                                            <br><small class="text-muted">({{ $file['mime_type'] }})</small>
-                                        </li>
-                                    @else
-                                        <li>Invalid file data</li>
-                                    @endif
-                                @endforeach
-                            </ul>
-                        @else
-                            -
-                        @endif
-                    </td>
-                    <td>{{ $assignment->comments ?? '-' }}</td>
-                    <td>
-                        <strong>HTML:</strong> <pre>{{ $assignment->html_code ?? '-' }}</pre>
-                        <strong>CSS:</strong> <pre>{{ $assignment->css_code ?? '-' }}</pre>
-                        <strong>JS:</strong> <pre>{{ $assignment->js_code ?? '-' }}</pre>
-                    </td>
-                    <td>{{ $assignment->feedback ?? '-' }}</td>
-                    <td>{{ optional($assignment->feedback_timestamp)->format('Y-m-d H:i:s') ?? '-' }}</td>
-                </tr>
+               
                 @empty
                 <tr>
                     <td colspan="13" class="text-center py-4">

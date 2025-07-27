@@ -4,6 +4,9 @@ use App\Http\Controllers\SiteSettingController;
 use App\Http\Controllers\GeminiController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SmsController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\AssignmentSubmitController;
  
  
  
@@ -36,7 +39,7 @@ Route::view('/login','frontend.login.form')->name('login.form');
 Route::post('/login-submit','LoginController@login')->name('login');
 Route::get('/logout','LoginController@logout')->name('logout');
 Route::view('/register/form', 'backend.register.register')->name('assign.register');
- Route::post('/admin/register', [RegistrationController::class, 'register'])->name('admin.register');// not done yet
+Route::post('/admin/register', [RegistrationController::class, 'register'])->name('admin.register');// not done yet
 
 
 // Admin Routes
@@ -73,22 +76,30 @@ Route::resource('table/students', StudentController::class)->names([ // Note 'ta
         'update' => 'teacher.student.update',
         'destroy' => 'teacher.student.destroy',
     ]);
- 
-});
- 
- 
-
-//Students Routes
-Route::prefix('student')->middleware(['auth', 'role:student'])->group(function () {
-Route::get('/dashboard', 'LoginController@dashboardstudent')->name('student.dashboard');
-Route::resource('assignment-submission', 'StudentAssignmentController');
+Route::delete('/assignments/submit/{assignmentSubmit}', [AssignmentSubmitController::class, 'destroy'])->name('assignments.submit.destroy');
+ Route::middleware(['auth', 'role:teacher'])->group(function () {
+    Route::get('/teacher/assignments/submitted', [AssignmentSubmitController::class, 'show'])->name('assignment.submit');
 });
 
-// User Routes
+});
+ 
+  
+
+// User or Student Routes
 Route::middleware('role:user')->prefix('user.dashboard')->group(function () {
-     Route::get('/dashboard', 'LoginController@dashboarduser')->name('user.dashboard');
-});
+     Route::get('/dashboard', 'LoginController@dashboarduser')->name('user.dashboard'); 
+    Route::get('view/assignments', 'AssignmentController@show')->name('assignments.show');
+//assignment submission
+ Route::get('/assignment/submit', [AssignmentController::class, 'showSubmitForm'])->name('assignment.submit_form');
+Route::post('/assignments/submit-form', [AssignmentSubmitController::class, 'store'] )->name('assignments.submit');
+Route::get('/submited_assignments',  [AssignmentSubmitController::class, 'index'])->name('assignments.index');
+  Route::view('/submited_assignments',  [AssignmentSubmitController::class, 'show'])->name('assignments.test');
+  Route::get('/submited_assignments',  [AssignmentSubmitController::class, 'index'])->name('assignments.index');
+  
 
+
+});
+ 
 
 //Backend Routes
 Route::view('dashboard','backend.dashboard')->name('dashboard');

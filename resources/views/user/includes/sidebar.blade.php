@@ -13,9 +13,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('dashboard')}}">
+                <a class="nav-link" href="{{ route('user.dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Sujects Name</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -37,21 +37,27 @@
           
         <!-- for labs -->
          <li class="nav-item active">
-                <a class="nav-link" href="" >
+                <a class="nav-link" href="{{route('lab.index')}}" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Labs Name</span></a>
 
     <!-- Assignments (View) -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('assignments.show')}}">
             <i class="fas fa-fw fa-book"></i>
             <span>View Assignments</span>
+        </a>
+    </li>
+     <li class="nav-item">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Test</span>
         </a>
     </li>
 
     <!-- Submit Assignment -->
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('assignments.index')}}">
             <i class="fas fa-fw fa-upload"></i>
             <span>Submit Assignment</span>
         </a>
